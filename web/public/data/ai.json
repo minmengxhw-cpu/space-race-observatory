@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "disclaimer": "模型能力快速迭代，榜单与参数以公开信息为准，存在厂商自报与第三方评测差异。仅供科普对照。",
+  "meta": {
+    "title": "人工智能 · 头部模型比拼",
+    "titleEn": "AI Frontier · US vs China",
+    "tagline": "G2 最核心战场：闭源前沿、开源浪潮、算力底座与应用落地"
+  },
+  "heroStats": [
+    {
+      "label": "美方闭源前沿",
+      "value": "GPT · Claude · Gemini",
+      "unit": "三强",
+      "tone": "cyan",
+      "note": "全栈生态与企业渗透深"
+    },
+    {
+      "label": "中方开源/高效",
+      "value": "DeepSeek · Qwen · 文心",
+      "unit": "代表",
+      "tone": "amber",
+      "note": "性价比与工程效率突出"
+    },
+    {
+      "label": "关键瓶颈",
+      "value": "先进算力",
+      "unit": "芯片",
+      "tone": "slate",
+      "note": "出口管制重塑训练路径"
+    },
+    {
+      "label": "下一阶段",
+      "value": "Agent · 多模态",
+      "unit": "产品",
+      "tone": "violet",
+      "note": "从聊天到可执行智能体"
+    }
+  ],
+  "modelArenas": [
+    {
+      "id": "frontier-closed",
+      "name": "闭源前沿模型",
+      "desc": "旗舰通用智能，面向全球开发者与企业 API",
+      "models": [
+        {
+          "id": "gpt",
+          "name": "GPT 系列",
+          "org": "OpenAI",
+          "country": "US",
+          "tier": "S",
+          "style": "闭源 · 生态最广",
+          "strengths": ["产品与插件生态", "多模态与工具调用", "企业与开发者心智"],
+          "weaknesses": ["成本与配额", "开源可控性弱"],
+          "status": "持续迭代"
+        },
+        {
+          "id": "claude",
+          "name": "Claude 系列",
+          "org": "Anthropic",
+          "country": "US",
+          "tier": "S",
+          "style": "闭源 · 长文与安全",
+          "strengths": ["长上下文写作/代码", "对齐与安全叙事", "企业协作场景"],
+          "weaknesses": ["中国区可用与合规路径复杂"],
+          "status": "持续迭代"
+        },
+        {
+          "id": "gemini",
+          "name": "Gemini 系列",
+          "org": "Google DeepMind",
+          "country": "US",
+          "tier": "S",
+          "style": "闭源 · 搜索与多模态",
+          "strengths": ["与 Google 生态绑定", "多模态与研究深度", "云上分发"],
+          "weaknesses": ["产品节奏波动"],
+          "status": "持续迭代"
+        },
+        {
+          "id": "ernie",
+          "name": "文心大模型",
+          "org": "百度",
+          "country": "CN",
+          "tier": "A",
+          "style": "闭源/开放并用 · 中文与产业",
+          "strengths": ["中文与本土场景", "搜索/ ent 生态", "政企项目经验"],
+          "weaknesses": ["全球心智弱于美三强"],
+          "status": "产业落地重点"
+        }
+      ]
+    },
+    {
+      "id": "open-efficient",
+      "name": "开源与高效训练",
+      "desc": "中国路径亮点：开源权重、推理成本与训练效率",
+      "models": [
+        {
+          "id": "deepseek",
+          "name": "DeepSeek 系列",
+          "org": "深度求索",
+          "country": "CN",
+          "tier": "S",
+          "style": "开源/高性价比",
+          "strengths": ["推理与代码口碑", "训练/推理成本叙事", "开源社区影响力"],
+          "weaknesses": ["算力与供应链外部约束"],
+          "status": "全球关注度高"
+        },
+        {
+          "id": "qwen",
+          "name": "通义千问 Qwen",
+          "org": "阿里云",
+          "country": "CN",
+          "tier": "S",
+          "style": "开源家族完整",
+          "strengths": ["开源型号齐全", "云上分发", "中文与多模态"],
+          "weaknesses": ["与闭源顶尖的差距在缩小中波动"],
+          "status": "开源主力"
+        },
+        {
+          "id": "llama",
+          "name": "Llama 系列",
+          "org": "Meta",
+          "country": "US",
+          "tier": "S",
+          "style": "开源定盘星",
+          "strengths": ["全球开源基座", "社区与衍生模型", "研究复现"],
+          "weaknesses": ["许可与商用条款需注意"],
+          "status": "开源标杆"
+        },
+        {
+          "id": "glm",
+          "name": "GLM / 智谱",
+          "org": "智谱 AI",
+          "country": "CN",
+          "tier": "A",
+          "style": "开源+闭源双轨",
+          "strengths": ["学术与产业结合", "Agent/工具向", "国内开发者生态"],
+          "weaknesses": ["海外品牌声量有限"],
+          "status": "国内头部"
+        }
+      ]
+    }
+  ],
+  "compareAxes": [
+    {
+      "axis": "旗舰通用能力",
+      "us": "闭源 SOTA 仍整体领先（GPT/Claude/Gemini）",
+      "cn": "部分任务追平，整体逼近中的「高效追赶」",
+      "edge": "US"
+    },
+    {
+      "axis": "开源生态",
+      "us": "Llama 定义全球开源基线",
+      "cn": "Qwen/DeepSeek 等快速占据中文与性价比心智",
+      "edge": "TIE"
+    },
+    {
+      "axis": "训练算力",
+      "us": "高端 GPU 集群与云资源充裕",
+      "cn": "先进芯片受限，走效率、国产替代与集群工程",
+      "edge": "US"
+    },
+    {
+      "axis": "应用与场景",
+      "us": "全球 SaaS/开发者付费成熟",
+      "cn": "C 端超级 App、政企与制造业场景规模大",
+      "edge": "TIE"
+    },
+    {
+      "axis": "监管与安全",
+      "us": "安全对齐、出口管制、州/联邦规则并行",
+      "cn": "生成式 AI 备案、内容安全、数据跨境规范",
+      "edge": "DIFF"
+    }
+  ],
+  "stackLayers": [
+    {
+      "layer": "芯片与互联",
+      "us": ["NVIDIA 数据中心 GPU", "AMD/自研 ASIC", "TSMC 先进代工"],
+      "cn": ["昇腾等国产加速器", "集群互联优化", "成熟制程挖潜"]
+    },
+    {
+      "layer": "云与训练平台",
+      "us": ["AWS / Azure / GCP", "超大规模训练集群"],
+      "cn": ["阿里云 / 华为云 / 百度智能云", "智算中心布局"]
+    },
+    {
+      "layer": "模型层",
+      "us": ["闭源三强 + Llama 开源"],
+      "cn": ["开源浪潮 + 产业闭源模型"]
+    },
+    {
+      "layer": "应用层",
+      "us": ["Copilot 类、垂直 Agent、企业工作流"],
+      "cn": ["办公/搜索/电商/政务/工业质检"]
+    }
+  ],
+  "roadmap": {
+    "us": [
+      { "phase": "01", "title": "预训练缩放", "years": "2018–23", "items": ["Transformer 规模化", "ChatGPT 时刻", "多模态起步"] },
+      { "phase": "02", "title": "产品与生态", "years": "2023–25", "items": ["API 战争", "企业 Copilot", "安全与监管"] },
+      { "phase": "03", "title": "Agent 化", "years": "2025–", "items": ["工具调用可靠化", "长程任务", "计算机使用"] },
+      { "phase": "04", "title": "科学与具身", "years": "远期", "items": ["科研加速", "机器人大脑", "能源约束"] }
+    ],
+    "cn": [
+      { "phase": "01", "title": "跟跑大模型", "years": "2020–23", "items": ["百模大战", "中文语料", "云上推理"] },
+      { "phase": "02", "title": "开源突围", "years": "2024–26", "items": ["DeepSeek 等效率叙事", "开源权重", "成本优势"] },
+      { "phase": "03", "title": "国产算力适配", "years": "进行中", "items": ["国产芯片软件栈", "混合精度与并行", "推理侧优化"] },
+      { "phase": "04", "title": "场景与标准", "years": "十五五", "items": ["行业大模型", "安全可控", "标准与出海"] }
+    ]
+  },
+  "milestones": [
+    {
+      "date": "2022-11",
+      "side": "US",
+      "title": "ChatGPT 引爆生成式 AI",
+      "desc": "大模型进入大众产品期，美方建立全球心智领先。"
+    },
+    {
+      "date": "2023–24",
+      "side": "CN",
+      "title": "国内大模型密集发布与备案",
+      "desc": "百模竞速；监管框架成型；产业落地提速。"
+    },
+    {
+      "date": "2024–25",
+      "side": "CN",
+      "title": "开源模型全球声量上升",
+      "desc": "DeepSeek、Qwen 等在开源与性价比维度获得国际关注。"
+    },
+    {
+      "date": "2025–26",
+      "side": "BOTH",
+      "title": "Agent 与多模态成为下半场",
+      "desc": "从「会聊」到「会做事」；算力与工程效率决定节奏。"
+    }
+  ],
+  "sources": [
+    { "id": "company", "label": "各公司官方模型发布与技术博客", "url": "https://openai.com" },
+    { "id": "lmsys", "label": "公开竞技场/第三方评测（参考）", "url": "https://lmarena.ai" },
+    { "id": "policy", "label": "中美 AI 监管与产业政策公开文件", "url": "https://www.gov.cn" }
+  ]
+}

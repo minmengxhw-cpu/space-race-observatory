@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "updateCadence": "weekly",
+  "meta": {
+    "title": "G2 科技树",
+    "titleEn": "G2 Tech Tree Observatory",
+    "tagline": "中美科技实力对照：人工智能 · 航空航天 · 生物医药 · 十五五未来产业",
+    "positioning": "以公开信息做科普级对照台，突出头部模型与产业节点，不做投资建议。"
+  },
+  "disclaimer": "本站为科普可视化。数据来自公开报道、公司发布与统计机构，存在口径差异与滞后。规划目标≠承诺。计划每周巡检更新。",
+  "sectors": [
+    {
+      "id": "ai",
+      "name": "人工智能",
+      "nameEn": "AI Frontier",
+      "priority": 1,
+      "accent": "violet",
+      "summary": "头部大模型、算力芯片、开源闭源路线与应用落地对照——本站最核心赛道。",
+      "usLead": "闭源前沿模型与全栈生态仍占优势",
+      "cnLead": "开源模型、工程效率与部分场景落地加速",
+      "kpis": [
+        { "label": "美方代表", "value": "GPT / Claude / Gemini" },
+        { "label": "中方代表", "value": "DeepSeek / 通义 / 文心" },
+        { "label": "关键战场", "value": "模型 + 算力 + 数据" }
+      ]
+    },
+    {
+      "id": "aerospace",
+      "name": "航空航天",
+      "nameEn": "Aerospace",
+      "priority": 2,
+      "accent": "cyan",
+      "summary": "SpaceX 高频复用与星座 vs 中国长征/空间站/低轨星座建设。",
+      "usLead": "可复用火箭工业化与 Starlink 规模",
+      "cnLead": "载人空间站运营与国家队高可靠体系",
+      "kpis": [
+        { "label": "2025 美发射", "value": "~193 次" },
+        { "label": "2025 中国发射", "value": "~93 次" },
+        { "label": "焦点", "value": "复用 · 星座" }
+      ]
+    },
+    {
+      "id": "biopharma",
+      "name": "生物医药",
+      "nameEn": "Biopharma",
+      "priority": 3,
+      "accent": "emerald",
+      "summary": "原研创新、BD 出海、器械与监管体系对照。",
+      "usLead": "全球原研管线与顶尖生物技术平台",
+      "cnLead": "仿创结合、License-out 与临床资源优势",
+      "kpis": [
+        { "label": "美方", "value": "Big Pharma + Biotech" },
+        { "label": "中方", "value": "创新药 + 出海 BD" },
+        { "label": "焦点", "value": "ADC · 细胞基因" }
+      ]
+    },
+    {
+      "id": "future",
+      "name": "十五五 · 未来产业",
+      "nameEn": "15th FYP Futures",
+      "priority": 4,
+      "accent": "amber",
+      "summary": "中国十五五方向性未来产业 vs 美国产业与科技政策工具箱。",
+      "usLead": "CHIPS / IRA 等政策与资本生态",
+      "cnLead": "举国体制、场景规模与产业链韧性",
+      "kpis": [
+        { "label": "中方框架", "value": "十五五 未来产业" },
+        { "label": "美方框架", "value": "CHIPS · IRA · AI EO" },
+        { "label": "焦点", "value": "半导体 · 新能源 · 机器人" }
+      ]
+    }
+  ],
+  "treeLayers": [
+    {
+      "id": "foundation",
+      "name": "底层底座",
+      "nodes": ["算力芯片", "先进制程", "能源电力", "关键材料", "基础软件"]
+    },
+    {
+      "id": "platform",
+      "name": "平台能力",
+      "nodes": ["大模型", "云与数据中心", "运载火箭", "生物技术平台", "工业软件"]
+    },
+    {
+      "id": "application",
+      "name": "应用与场景",
+      "nodes": ["AI 应用", "低轨星座", "创新药械", "智能制造", "绿色能源"]
+    },
+    {
+      "id": "governance",
+      "name": "制度与生态",
+      "nodes": ["标准与安全", "资本与人才", "出口管制", "开源社区", "五年规划"]
+    }
+  ]
+}

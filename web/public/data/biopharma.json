@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "meta": {
+    "title": "生物医药 · 中美对照",
+    "titleEn": "Biopharma US vs China",
+    "tagline": "原研创新、临床资源、BD 出海与监管体系"
+  },
+  "heroStats": [
+    {
+      "label": "美方优势",
+      "value": "原研与平台",
+      "unit": "全球",
+      "tone": "cyan",
+      "note": "顶尖 Biotech + Big Pharma"
+    },
+    {
+      "label": "中方优势",
+      "value": "临床与效率",
+      "unit": "速度",
+      "tone": "amber",
+      "note": "患者资源与工程化研发"
+    },
+    {
+      "label": "热点赛道",
+      "value": "ADC · CGT",
+      "unit": "前沿",
+      "tone": "emerald",
+      "note": "抗体偶联 · 细胞基因"
+    },
+    {
+      "label": "资本与出海",
+      "value": "License-out",
+      "unit": "BD",
+      "tone": "slate",
+      "note": "中国创新资产对外授权升温"
+    }
+  ],
+  "compareAxes": [
+    {
+      "axis": "原研与基础研究",
+      "us": "高校/NIH/Biotech 源头创新强",
+      "cn": "快速跟进与 Fast-follow，源头创新在爬坡",
+      "edge": "US"
+    },
+    {
+      "axis": "临床试验",
+      "us": "全球多中心金标准，成本高",
+      "cn": "入组速度快、成本相对低",
+      "edge": "CN_SPEED"
+    },
+    {
+      "axis": "监管路径",
+      "us": "FDA 全球互认与定价/支付复杂",
+      "cn": "NMPA 审评改革持续，医保谈判影响商业化",
+      "edge": "DIFF"
+    },
+    {
+      "axis": "商业化与支付",
+      "us": "商业保险与高价创新药市场",
+      "cn": "集采+医保下控费，创新溢价承压",
+      "edge": "US"
+    },
+    {
+      "axis": "国际化",
+      "us": "全球销售网络成熟",
+      "cn": "License-out / 合作研发成为主路径之一",
+      "edge": "TIE_EVOLVING"
+    }
+  ],
+  "hotTracks": [
+    {
+      "name": "ADC 抗体偶联",
+      "us": "第一梯队平台与已上市品种多",
+      "cn": "管线密度高，差异化与出海关键"
+    },
+    {
+      "name": "细胞与基因治疗",
+      "us": "CAR-T 等商业化领先",
+      "cn": "适应症拓展与成本控制探索"
+    },
+    {
+      "name": "减肥/代谢",
+      "us": "GLP-1 等重磅定义市场",
+      "cn": "国产跟进与口服/长效迭代"
+    },
+    {
+      "name": "医疗器械与影像AI",
+      "us": "高端器械品牌强",
+      "cn": "中端替代 + AI 辅助诊断场景"
+    }
+  ],
+  "roadmap": {
+    "us": [
+      { "phase": "01", "title": "平台定义病种", "items": ["mRNA、基因编辑、ADC 等平台化"] },
+      { "phase": "02", "title": "全球注册销售", "items": ["FDA/EMA 路径", "医保与商保组合"] },
+      { "phase": "03", "title": "AI4S 制药", "items": ["靶点发现", "临床试验设计辅助"] }
+    ],
+    "cn": [
+      { "phase": "01", "title": "仿创与一致性", "items": ["仿制药质量提升", "创新药政策窗口"] },
+      { "phase": "02", "title": "创新药兑现", "items": ["BD 出海", "差异化靶点"] },
+      { "phase": "03", "title": "源头创新爬坡", "items": ["基础研究转化", "全球多中心"] }
+    ]
+  },
+  "milestones": [
+    {
+      "date": "2015+",
+      "side": "CN",
+      "title": "药审改革与创新药政策周期",
+      "desc": "审评加速、临床默示许可等改变行业节奏。"
+    },
+    {
+      "date": "2020s",
+      "side": "US",
+      "title": "平台型 Biotech 与重磅单品并行",
+      "desc": "mRNA、减肥药等重塑管线价值逻辑。"
+    },
+    {
+      "date": "2023–26",
+      "side": "CN",
+      "title": "License-out 大单增多",
+      "desc": "中国创新资产进入跨国药企视野。"
+    }
+  ]
+}
