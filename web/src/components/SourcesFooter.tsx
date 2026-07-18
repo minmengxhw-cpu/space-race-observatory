@@ -19,8 +19,8 @@ export function SourcesFooter({
         <p className="mt-2 text-xs sm:text-sm text-slate-500 leading-relaxed max-w-3xl">
           火箭图鉴优先使用 NASA 与 Wikimedia Commons 公开实拍；长征九号尚未首飞，暂用中国重型火箭发射实拍作场景参照。规格与改进点为公开量级。
         </p>
-        <p className="mt-2 text-[11px] sm:text-xs text-slate-500 font-mono-num">
-          数据截至 {updatedAt} · 口径可能调整
+        <p className="mt-2 text-sm text-slate-400 font-mono-num">
+          数据截至 {updatedAt} · <span className="text-emerald-400/90">计划每周一巡检更新</span>
         </p>
 
         <ul className="mt-5 sm:mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2">

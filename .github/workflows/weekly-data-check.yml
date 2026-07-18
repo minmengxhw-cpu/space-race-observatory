@@ -1,0 +1,66 @@
+name: Weekly data check
+
+# 每周一 08:00 UTC ≈ 北京时间 16:00，创建 issue 提醒复核数据
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open or update weekly checklist issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `📊 每周数据巡检 · ${new Date().toISOString().slice(0, 10)}`;
+            const body = `## 航天对照台 · 每周更新清单
+
+站点：https://minmengxhw-cpu.github.io/space-race-observatory/
+
+### 请复核并必要时更新
+- [ ] \`web/public/data/seed.json\` 发射 / KPI / 星座数字
+- [ ] \`web/public/data/rockets.json\` 型号与改进说明（一般少变）
+- [ ] \`updatedAt\` 字段改为今日
+- [ ] 提交 main → 自动部署 GitHub Pages
+
+### 推荐来源
+- Wikipedia Falcon 9 launches
+- SpaceXNow stats
+- Jonathan McDowell Starlink
+- SpaceNews / 中国航天公开报道
+
+_本 issue 由 \`weekly-data-check\` 工作流自动创建（每周一）。_`;
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'weekly-data',
+              per_page: 5,
+            });
+
+            if (issues.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues[0].number,
+                body: `🔔 新一周巡检提醒（${new Date().toISOString()}）\n\n` + body,
+              });
+              core.info(`Commented on existing issue #${issues[0].number}`);
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['weekly-data'],
+              });
+              core.info('Created new weekly issue');
+            }

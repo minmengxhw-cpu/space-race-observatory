@@ -2,7 +2,9 @@
   "schemaVersion": 2,
   "updatedAt": "2026-07-18",
   "dataAsOf": "2026-07-16",
-  "disclaimer": "本站为科普可视化。发射与着陆数据主要依据 Wikipedia Falcon 列表、SpaceXNow、SpaceNews 及 Jonathan McDowell 星链统计；中国发射与星座数据来自公开报道，存在口径差异（轨道尝试 vs 成功、国家 vs 公司）。规划目标≠承诺，不构成投资或政策建议。",
+  "updateCadence": "weekly",
+  "updateNote": "计划每周一巡检公开数据并发布；非实时秒级同步。",
+  "disclaimer": "本站为科普可视化。发射与着陆数据主要依据 Wikipedia Falcon 列表、SpaceXNow、SpaceNews 及 Jonathan McDowell 星链统计；中国发射与星座数据来自公开报道，存在口径差异（轨道尝试 vs 成功、国家 vs 公司）。规划目标≠承诺，不构成投资或政策建议。计划每周更新一次。",
   "meta": {
     "title": "航天对照台",
     "titleEn": "Space Race Observatory",

@@ -44,7 +44,7 @@ export function Hero({ title, titleEn, tagline, updatedAt, onEnter }: HeroProps)
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.18, duration: 0.6 }}
-          className="font-display text-[2rem] leading-tight sm:text-6xl md:text-7xl font-semibold tracking-wide text-glow-cyan"
+          className="font-display text-[2.35rem] leading-tight sm:text-6xl md:text-7xl font-bold tracking-wide text-glow-cyan"
         >
           {title}
         </motion.h1>
@@ -69,7 +69,7 @@ export function Hero({ title, titleEn, tagline, updatedAt, onEnter }: HeroProps)
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.48 }}
-          className="mt-5 sm:mt-8 text-sm sm:text-lg text-slate-300/95 max-w-2xl mx-auto leading-relaxed px-1"
+          className="mt-5 sm:mt-8 text-base sm:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed px-1"
         >
           {tagline}
         </motion.p>

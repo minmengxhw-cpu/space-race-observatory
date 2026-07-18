@@ -12,8 +12,11 @@ import { Section } from './components/Section'
 import { SourcesFooter } from './components/SourcesFooter'
 import { Ticker } from './components/Ticker'
 import { MobileNav } from './components/MobileNav'
-import { MobileSummary } from './components/MobileSummary'
 import { RocketEvolution } from './components/RocketEvolution'
+import { BigStatBlocks } from './components/BigStatBlocks'
+import { TechRoadmap } from './components/TechRoadmap'
+import { SpacexModels } from './components/SpacexModels'
+import { UpdateBadge } from './components/UpdateBadge'
 
 export default function App() {
   const [data, setData] = useState<SeedData | null>(null)
@@ -75,12 +78,12 @@ export default function App() {
     if (!data) return []
     return [
       `数据截至 ${data.updatedAt}`,
+      '每周一自动巡检更新',
       'Falcon 累计 678 次',
       '一级着陆 638 / 651',
       'Starlink 在轨 10,832',
       '2025 中国 93 次 · 美国 193 次',
       'SpaceX 2026 YTD 86 / 目标 145',
-      '千帆≈200 · 国网≈168',
     ]
   }, [data])
 
@@ -88,8 +91,8 @@ export default function App() {
     return (
       <div className="min-h-[100svh] flex items-center justify-center starfield px-4">
         <div className="hud-panel p-6 sm:p-8 max-w-md text-center w-full">
-          <p className="text-amber-300 font-display tracking-widest">遥测中断</p>
-          <p className="mt-2 text-slate-400 text-sm">{error}</p>
+          <p className="text-amber-300 font-display tracking-widest text-lg">遥测中断</p>
+          <p className="mt-2 text-slate-300 text-base">{error}</p>
         </div>
       </div>
     )
@@ -99,7 +102,7 @@ export default function App() {
     return (
       <div className="min-h-[100svh] flex flex-col items-center justify-center starfield gap-4">
         <div className="w-10 h-10 rounded-full border-2 border-cyan-400/30 border-t-cyan-400 animate-spin" />
-        <p className="font-display text-cyan-300/80 tracking-[0.35em] text-xs">ACQUIRING SIGNAL</p>
+        <p className="font-display text-cyan-300/80 tracking-[0.35em] text-sm">ACQUIRING SIGNAL</p>
       </div>
     )
   }
@@ -107,7 +110,7 @@ export default function App() {
   const kpiBlock = data.kpis[timeMode]
 
   return (
-    <div className="min-h-[100svh] bg-void text-slate-100 pb-[calc(4.25rem+env(safe-area-inset-bottom,0px))] md:pb-0">
+    <div className="min-h-[100svh] bg-void text-slate-100 pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] md:pb-0">
       {showHero && (
         <Hero
           title={data.meta.title}
@@ -126,37 +129,36 @@ export default function App() {
           className="sticky top-0 z-40 nav-glass"
           style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
         >
-          <div className="max-w-6xl mx-auto px-3 sm:px-4 h-12 sm:h-14 flex items-center justify-between gap-2">
+          <div className="max-w-6xl mx-auto px-3 sm:px-4 h-13 sm:h-14 flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 min-w-0">
               <span className="status-dot shrink-0" />
-              <span className="font-display text-xs sm:text-sm tracking-wider truncate text-slate-100">
+              <span className="font-display text-sm sm:text-base tracking-wider truncate text-white font-semibold">
                 {data.meta.title}
               </span>
             </div>
-            <nav className="hidden md:flex items-center gap-5 text-xs text-slate-400">
+            <nav className="hidden lg:flex items-center gap-4 text-sm text-slate-300">
               {[
                 ['#overview', '总览'],
                 ['#rockets', '火箭'],
+                ['#roadmap', '路线'],
                 ['#launch', '发射'],
-                ['#reuse', '回收'],
-                ['#constellation', '星座'],
-                ['#timeline', '时间轴'],
+                ['#timeline', '节点'],
               ].map(([href, label]) => (
-                <a key={href} href={href} className="hover:text-cyan-300 transition-colors tracking-wide">
+                <a key={href} href={href} className="hover:text-cyan-300 transition-colors font-medium">
                   {label}
                 </a>
               ))}
             </nav>
-            <div className="flex items-center gap-0.5 p-0.5 rounded border border-slate-700/90 bg-space/90 text-[10px] sm:text-[11px] shrink-0">
+            <div className="flex items-center gap-0.5 p-0.5 rounded-lg border border-slate-700/90 bg-space/90 text-xs sm:text-sm shrink-0">
               {data.usToggle.options.map((opt) => (
                 <button
                   key={opt.id}
                   type="button"
                   onClick={() => setCompareMode(opt.id)}
-                  className={`px-2 sm:px-2.5 py-1.5 min-h-[36px] rounded-sm transition-colors touch-manipulation ${
+                  className={`px-2.5 sm:px-3 py-2 min-h-[40px] rounded-md transition-colors touch-manipulation font-semibold ${
                     compareMode === opt.id
-                      ? 'bg-cyan-400/15 text-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.2)]'
-                      : 'text-slate-500 active:text-slate-300'
+                      ? 'bg-cyan-400 text-void'
+                      : 'text-slate-400 active:text-slate-200'
                   }`}
                 >
                   {opt.id === 'spacex' ? 'SpaceX' : '美国'}
@@ -169,83 +171,100 @@ export default function App() {
         <div className="hidden sm:block">
           <Ticker items={tickerItems} />
         </div>
-        {/* 手机：单行精简 ticker，少占高度 */}
-        <div className="sm:hidden overflow-hidden border-b border-slate-800/80 bg-black/25 py-1.5">
-          <p className="px-3 text-[10px] font-mono-num text-slate-500 truncate">
-            <span className="text-emerald-400/80 mr-1.5">●</span>
-            数据 {data.updatedAt} · SX 86 YTD · 着陆 638 · Starlink 1.08万
+        <div className="sm:hidden overflow-hidden border-b border-slate-800/80 bg-black/25 py-2">
+          <p className="px-3 text-xs font-mono-num text-slate-400 truncate">
+            <span className="text-emerald-400 mr-1.5">●</span>
+            每周更新 · 数据 {data.updatedAt} · SX 86 YTD · 着陆 638
           </p>
         </div>
 
-        <main className="relative z-10 max-w-6xl mx-auto px-3 sm:px-4 pb-6 sm:pb-8">
+        <main className="relative z-10 max-w-6xl mx-auto px-3 sm:px-4 pb-8">
           <Section
             id="overview"
             eyebrow="01 · DASHBOARD"
             title="总览对照台"
-            desc="切换时间维度，对比 SpaceX（或美国合计）与中国。标注「规划」的为公开目标，非承诺。"
+            desc="大色块标出最关键数字。切换「过去 / 现在 / 未来」看不同时间切片。"
           >
-            <MobileSummary data={data} timeMode={timeMode} compareMode={compareMode} />
+            <UpdateBadge updatedAt={data.updatedAt} />
+            <BigStatBlocks data={data} timeMode={timeMode} compareMode={compareMode} />
 
             <div className="mb-5 sm:mb-8">
               <TimeModeTabs value={timeMode} onChange={setTimeMode} modeLabel={kpiBlock.label} />
             </div>
             <KpiStrip items={kpiBlock.items} />
-            <div className="mt-5 sm:mt-8">
+            <div className="mt-6 sm:mt-8">
               <DualCompare left={leftCompare} right={data.compare.china} mode={timeMode} />
             </div>
           </Section>
 
-          <div className="section-rule my-1 sm:my-2" />
+          <div className="section-rule my-2" />
 
           <Section
             id="rockets"
             eyebrow="02 · ROCKETS"
-            title="火箭实体 · 世代演进"
-            desc="SpaceX（马斯克旗下）与中国长征各代火箭外形、规格与关键改进。点选缩略图查看详情；可左右滑动切换型号。"
+            title="马斯克火箭型号墙"
+            desc="SpaceX 五代主线一眼扫完；下方可切换完整中美火箭图鉴与改进点。"
           >
-            <RocketEvolution />
+            <SpacexModels />
+            <div className="mt-8 sm:mt-10">
+              <p className="font-display text-sm tracking-[0.2em] text-amber-400 uppercase mb-3">
+                中美火箭图鉴 · 点选查看改进
+              </p>
+              <RocketEvolution />
+            </div>
           </Section>
 
-          <div className="section-rule my-1 sm:my-2" />
+          <div className="section-rule my-2" />
+
+          <Section
+            id="roadmap"
+            eyebrow="03 · ROADMAP"
+            title="技术路线图对照"
+            desc="SpaceX 走「复用工业化 → 完全可复用」；中国走「载人可靠 → 重型新一代 → 星座与可回收」。"
+          >
+            <TechRoadmap />
+          </Section>
+
+          <div className="section-rule my-2" />
 
           <Section
             id="launch"
-            eyebrow="03 · LAUNCH"
-            title="发射成绩"
-            desc="年度轨道发射对照。可切换 SpaceX / 美国合计。2026 为 YTD。"
+            eyebrow="04 · LAUNCH"
+            title="发射成绩与历程"
+            desc="年度轨道发射对照曲线。美国合计 / SpaceX 可切换。"
           >
             <LaunchChart data={data.yearlyLaunches} compareMode={compareMode} />
           </Section>
 
-          <div className="section-rule my-1 sm:my-2" />
+          <div className="section-rule my-2" />
 
           <Section
             id="reuse"
-            eyebrow="04 · REUSE"
+            eyebrow="05 · REUSE"
             title="回收与复用"
-            desc="SpaceX 一级着陆 638 次成功；中国仍以验证与试验为主。"
+            desc="SpaceX 一级着陆已成为工业节奏；中国处于加速验证阶段。"
           >
             <ReusePanel spacex={data.reuse.spacex} china={data.reuse.china} />
           </Section>
 
-          <div className="section-rule my-1 sm:my-2" />
+          <div className="section-rule my-2" />
 
           <Section
             id="constellation"
-            eyebrow="05 · CONSTELLATION"
+            eyebrow="06 · CONSTELLATION"
             title="卫星与星座"
-            desc="Starlink 工作星约 10,832；国网 / 千帆组网中，规划万星量级。"
+            desc="Starlink 已大规模在轨；国网 / 千帆规划万星、建设中。"
           >
             <ConstellationPanel items={data.constellations} />
           </Section>
 
-          <div className="section-rule my-1 sm:my-2" />
+          <div className="section-rule my-2" />
 
           <Section
             id="timeline"
-            eyebrow="06 · TIMELINE"
-            title="时间叙事"
-            desc="从首次着陆到年发射纪录——近十年航天加速史。"
+            eyebrow="07 · MILESTONES"
+            title="关键节点 · 发射历程"
+            desc="横向色块先扫重点，下方展开完整时间线。"
           >
             <Timeline items={data.milestones} />
           </Section>

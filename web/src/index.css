@@ -23,6 +23,13 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 17px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 body {
@@ -30,7 +37,9 @@ body {
   min-height: 100vh;
   min-height: 100svh;
   font-family: var(--font-body);
-  color: #e2e8f0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #e8eef6;
   background: var(--color-void);
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
