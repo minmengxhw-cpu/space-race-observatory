@@ -136,24 +136,27 @@ export default function App() {
 
   if (error && !daily) {
     return (
-      <div className="min-h-[100svh] bg-void text-slate-200 flex items-center justify-center p-6">
-        <p>{error}</p>
+      <div className="min-h-[100svh] bg-void text-slate-200 flex items-center justify-center p-6 starfield">
+        <div className="hud-panel rounded-2xl p-8 text-center max-w-sm">
+          <p className="font-display text-amber-300 text-lg">遥测中断</p>
+          <p className="mt-2 text-slate-400 text-sm">{error}</p>
+        </div>
       </div>
     )
   }
 
   if (!site || !daily) {
     return (
-      <div className="min-h-[100svh] bg-void flex flex-col items-center justify-center gap-3">
-        <div className="w-9 h-9 border-2 border-cyan-400/30 border-t-cyan-400 rounded-full animate-spin" />
-        <p className="font-display text-sm tracking-widest text-slate-400">双轨加载中</p>
+      <div className="min-h-[100svh] bg-void flex flex-col items-center justify-center gap-4 starfield">
+        <div className="w-11 h-11 border-2 border-cyan-400/25 border-t-cyan-400 rounded-full animate-spin" />
+        <p className="font-display text-sm tracking-[0.35em] text-cyan-300/80">DUAL TRACK</p>
       </div>
     )
   }
 
   return (
     <div className="min-h-[100svh] bg-void text-slate-100">
-      <div className="fixed inset-0 starfield opacity-30 pointer-events-none" />
+      <div className="fixed inset-0 starfield opacity-45 pointer-events-none" />
       <div className="relative z-10">
         {view === 'home' && (
           <HomePage
@@ -182,12 +185,16 @@ export default function App() {
               }
             />
             {weeklyNote && domainId === 'ai' && (
-              <div className="max-w-lg mx-auto px-3 pb-10 sm:max-w-2xl">
-                <div className="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-4">
-                  <p className="text-xs font-bold text-amber-400">{weeklyNote.label}</p>
-                  <p className="mt-1 font-display text-lg font-bold text-white">{weeklyNote.title}</p>
-                  <p className="mt-2 text-sm text-slate-200 leading-relaxed">{weeklyNote.body}</p>
-                  <p className="mt-2 text-xs text-slate-500">周次 {weeklyNote.weekOf}</p>
+              <div className="max-w-lg mx-auto px-3.5 pb-12 sm:max-w-2xl">
+                <div className="rounded-2xl border border-amber-400/35 bg-gradient-to-br from-amber-500/15 to-transparent p-5 shadow-lg">
+                  <p className="text-xs font-display tracking-[0.2em] font-bold text-amber-300 uppercase">
+                    {weeklyNote.label}
+                  </p>
+                  <p className="mt-2 font-display text-xl font-bold text-white">{weeklyNote.title}</p>
+                  <p className="mt-3 text-sm sm:text-base text-slate-200 leading-relaxed">
+                    {weeklyNote.body}
+                  </p>
+                  <p className="mt-3 text-xs font-mono-num text-slate-500">周次 {weeklyNote.weekOf}</p>
                 </div>
               </div>
             )}
@@ -206,10 +213,10 @@ export default function App() {
         )}
         {view === 'deep-aerospace' && spaceSeed && (
           <div>
-            <div className="sticky top-0 z-40 bg-void/95 border-b border-slate-800 px-3 py-2">
+            <div className="sticky top-0 z-40 bg-void/95 backdrop-blur border-b border-cyan-500/15 px-3 py-2.5">
               <button
                 type="button"
-                className="text-sm font-semibold text-cyan-400 min-h-[40px]"
+                className="text-sm font-semibold text-cyan-300 min-h-[40px] px-3 rounded-lg border border-cyan-400/20 bg-cyan-500/5"
                 onClick={() => setView('domain')}
               >
                 ← 返回航天领域页
