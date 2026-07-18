@@ -1,0 +1,13 @@
+==== 2026-07-18 20:19:08 +0800 morning-update ====
+Daily file exists: /Users/cheer/space-race-dashboard/web/public/data/daily/2026-07-18.json
+{
+  "ok": true,
+  "identity": "user",
+  "data": {
+    "chat_id": "oc_54d16f7b585ecad4a432b93b88ece3da",
+    "create_time": "2026-07-18 20:19:09",
+    "message_id": "om_x100b6a82bd1630a0c0033d335c4c0bf"
+  }
+}
+Feishu sent OK
+==== done ====

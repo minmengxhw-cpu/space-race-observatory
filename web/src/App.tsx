@@ -184,17 +184,18 @@ export default function App() {
                 domainId === 'aerospace' ? () => setView('deep-aerospace') : undefined
               }
             />
-            {weeklyNote && domainId === 'ai' && (
-              <div className="max-w-lg mx-auto px-3.5 pb-12 sm:max-w-2xl">
-                <div className="rounded-2xl border border-amber-400/35 bg-gradient-to-br from-amber-500/15 to-transparent p-5 shadow-lg">
-                  <p className="text-xs font-display tracking-[0.2em] font-bold text-amber-300 uppercase">
-                    {weeklyNote.label}
+            {/* 周观察放领域页最底部（里程碑之后） */}
+            {weeklyNote && (
+              <div className="mx-auto w-full max-w-lg px-3 pb-14 sm:max-w-3xl sm:px-5 lg:max-w-5xl">
+                <div className="rounded-2xl bg-slate-200 text-void p-5 sm:p-6 shadow-lg">
+                  <p className="text-xs font-bold opacity-50 tracking-widest uppercase">
+                    {weeklyNote.label} · 放在最后
                   </p>
-                  <p className="mt-2 font-display text-xl font-bold text-white">{weeklyNote.title}</p>
-                  <p className="mt-3 text-sm sm:text-base text-slate-200 leading-relaxed">
+                  <p className="mt-2 font-display text-2xl font-bold">{weeklyNote.title}</p>
+                  <p className="mt-3 text-base font-medium leading-relaxed opacity-85">
                     {weeklyNote.body}
                   </p>
-                  <p className="mt-3 text-xs font-mono-num text-slate-500">周次 {weeklyNote.weekOf}</p>
+                  <p className="mt-3 text-xs font-mono-num opacity-50">周次 {weeklyNote.weekOf}</p>
                 </div>
               </div>
             )}

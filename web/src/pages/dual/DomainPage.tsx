@@ -9,6 +9,9 @@ const TITLE_BG: Record<string, string> = {
   future: 'bg-amber-400 text-void',
 }
 
+/**
+ * 领域页顺序：指标 → 近期动态 → 里程碑（最后）
+ */
 export function DomainPage({
   site,
   domainId,
@@ -33,7 +36,7 @@ export function DomainPage({
     <div className="relative min-h-[100svh] bg-void">
       <div className="pointer-events-none fixed inset-0 starfield opacity-40" />
 
-      <div className="relative z-10 max-w-lg mx-auto px-3 pb-14 sm:max-w-2xl sm:px-4">
+      <div className="relative z-10 mx-auto w-full max-w-lg px-3 pb-14 sm:max-w-3xl sm:px-5 lg:max-w-5xl">
         <button
           type="button"
           onClick={onBack}
@@ -42,14 +45,13 @@ export function DomainPage({
           ← 返回今日
         </button>
 
-        {/* 展厅大标题色块 */}
         <div className={`${titleBg} rounded-2xl mt-4 p-5 sm:p-6 shadow-xl`}>
-          <p className="text-sm font-bold opacity-70 tracking-widest uppercase">展厅 · L2 / L3</p>
-          <h1 className="mt-1 font-display text-4xl sm:text-5xl font-bold leading-none tracking-tight">
+          <p className="text-sm font-bold opacity-70 tracking-widest uppercase">展厅</p>
+          <h1 className="mt-1 font-display text-3xl sm:text-5xl font-bold leading-none tracking-tight break-words">
             {meta?.label ?? domainId}
           </h1>
           <p className="mt-3 text-base sm:text-lg font-bold opacity-80">
-            指标看板 · 里程碑 · 近期动态
+            先看指标与动态 · 里程碑在页末
           </p>
         </div>
 
@@ -63,6 +65,7 @@ export function DomainPage({
           </button>
         )}
 
+        {/* 1. 指标 */}
         <section className="mt-8">
           <BlockTitle n="01" title="指标看板" />
           {metrics ? (
@@ -72,8 +75,55 @@ export function DomainPage({
           )}
         </section>
 
+        {/* 2. 近期动态（消息成果） */}
         <section className="mt-8">
-          <BlockTitle n="02" title="里程碑" />
+          <BlockTitle n="02" title="近期动态与成果" />
+          <ul className="space-y-2.5">
+            {recentItems.map((it) => {
+              const cn = it.country === 'CN'
+              return (
+                <li
+                  key={it.id}
+                  className={`rounded-2xl p-4 sm:p-5 ${
+                    cn ? 'bg-amber-400 text-void' : 'bg-cyan-400 text-void'
+                  }`}
+                >
+                  <div className="flex justify-between items-center gap-2">
+                    <span className="text-sm font-bold opacity-75">
+                      {cn ? '中国' : '美国'}
+                    </span>
+                    <Stars n={it.stars} />
+                  </div>
+                  <p className="mt-2 text-xl sm:text-2xl font-bold leading-snug break-words">
+                    {it.title}
+                  </p>
+                  <p className="mt-2 text-base font-medium opacity-90 leading-relaxed break-words">
+                    {it.fact}
+                  </p>
+                  <p className="mt-2 text-sm font-medium opacity-80 leading-relaxed break-words">
+                    <span className="font-bold">意义 · </span>
+                    {it.why}
+                  </p>
+                  <a
+                    href={it.source}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-block mt-3 text-sm font-bold underline"
+                  >
+                    来源 →
+                  </a>
+                </li>
+              )
+            })}
+            {!recentItems.length && (
+              <p className="text-base text-slate-500">暂无近期条目</p>
+            )}
+          </ul>
+        </section>
+
+        {/* 3. 里程碑放最后 */}
+        <section className="mt-10 pb-4">
+          <BlockTitle n="03" title="里程碑（回看）" />
           <ol className="space-y-2.5">
             {milestones
               .filter((m) => m.domain === domainId)
@@ -94,47 +144,20 @@ export function DomainPage({
                       </span>
                     </div>
                     <div className="bg-slate-900 px-4 py-3.5 border border-t-0 border-slate-700">
-                      <p className="text-lg sm:text-xl font-bold text-white leading-snug">{m.title}</p>
-                      <p className="mt-1.5 text-base text-slate-300 leading-relaxed">{m.desc}</p>
+                      <p className="text-lg sm:text-xl font-bold text-white leading-snug break-words">
+                        {m.title}
+                      </p>
+                      <p className="mt-1.5 text-base text-slate-300 leading-relaxed break-words">
+                        {m.desc}
+                      </p>
                     </div>
                   </li>
                 )
               })}
+            {!milestones.some((m) => m.domain === domainId) && (
+              <p className="text-base text-slate-500">暂无里程碑</p>
+            )}
           </ol>
-        </section>
-
-        <section className="mt-8">
-          <BlockTitle n="03" title="近期动态" />
-          <ul className="space-y-2.5">
-            {recentItems.map((it) => {
-              const cn = it.country === 'CN'
-              return (
-                <li
-                  key={it.id}
-                  className={`rounded-2xl p-4 ${
-                    cn ? 'bg-amber-400 text-void' : 'bg-cyan-400 text-void'
-                  }`}
-                >
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm font-bold opacity-75">
-                      {cn ? '中国' : '美国'}
-                    </span>
-                    <Stars n={it.stars} />
-                  </div>
-                  <p className="mt-2 text-xl font-bold leading-snug">{it.title}</p>
-                  <p className="mt-1.5 text-base font-medium opacity-85 leading-relaxed">{it.fact}</p>
-                  <a
-                    href={it.source}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-block mt-2 text-sm font-bold underline"
-                  >
-                    来源 →
-                  </a>
-                </li>
-              )
-            })}
-          </ul>
         </section>
       </div>
     </div>

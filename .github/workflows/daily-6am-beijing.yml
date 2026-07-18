@@ -1,0 +1,90 @@
+name: Daily 06:00 Beijing scaffold
+
+# 北京时间 06:00 = UTC 22:00（前一天）
+on:
+  schedule:
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  scaffold:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure today's daily JSON exists
+        run: |
+          set -e
+          TODAY=$(TZ=Asia/Shanghai date +%Y-%m-%d)
+          DATA=web/public/data/daily
+          INDEX=$DATA/index.json
+          if [ -f "$DATA/$TODAY.json" ]; then
+            echo "exists $TODAY"
+            exit 0
+          fi
+          LATEST=$(python3 -c "import json; print(json.load(open('$INDEX'))['latest'])")
+          python3 << PY
+          import json
+          from pathlib import Path
+          today = "$TODAY"
+          latest = "$LATEST"
+          data_dir = Path("$DATA")
+          src = data_dir / f"{latest}.json"
+          dst = data_dir / f"{today}.json"
+          if src.exists():
+              d = json.loads(src.read_text())
+          else:
+              d = {"date": today, "focus": [], "items": []}
+          d["date"] = today
+          d["focus"] = []
+          d["items"] = []
+          d["note"] = f"CI 骨架（自 {latest}）。请补全过去 24h 真实动态。"
+          dst.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n")
+          idx = json.loads(Path("$INDEX").read_text())
+          idx["dates"] = [today] + [x for x in idx.get("dates", []) if x != today]
+          idx["latest"] = today
+          Path("$INDEX").write_text(json.dumps(idx, ensure_ascii=False, indent=2) + "\n")
+          print("scaffolded", today)
+          PY
+      - name: Commit if changed
+        run: |
+          git config user.name "dualtrack-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add web/public/data/daily || true
+          if git diff --staged --quiet; then
+            echo "no changes"
+          else
+            git commit -m "chore(daily): scaffold $(TZ=Asia/Shanghai date +%Y-%m-%d)"
+            git push
+          fi
+      - name: Open reminder issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const today = new Date().toLocaleString('en-CA', { timeZone: 'Asia/Shanghai' }).slice(0, 10);
+            const title = `双轨早报待补全 · ${today}`;
+            const body = `北京时间 06:00 巡检。
+
+站点：https://minmengxhw-cpu.github.io/space-race-observatory/
+
+请检查 \`web/public/data/daily/${today}.json\` 是否为真实「过去 24 小时」动态。
+
+本机 LaunchAgent 会通过飞书 CLI 另发通知（若已加载 com.cheer.dualtrack.morning）。`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ['daily-brief'],
+            }).catch(async (e) => {
+              // label may not exist
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            });
