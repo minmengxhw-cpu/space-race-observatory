@@ -1,73 +1,106 @@
 {
   "date": "2026-07-17",
-  "focus": ["us-ai-01"],
+  "focus": ["cn-ai-01", "cn-ai-02"],
   "items": [
-    {
-      "id": "us-ai-01",
-      "country": "US",
-      "domain": "ai",
-      "title": "企业侧 Agent 试点扩围",
-      "fact": "多家美资云与软件厂商继续把「可调用工具的智能体」作为企业产品主卖点，强调工作流嵌入。",
-      "why": "下半场从聊天转向执行；评测标准将从答题转向任务完成率。",
-      "source": "https://www.anthropic.com",
-      "stars": 3,
-      "tag": "智能体"
-    },
     {
       "id": "cn-ai-01",
       "country": "CN",
       "domain": "ai",
-      "title": "国产算力软件栈适配",
-      "fact": "公开讨论聚焦国产加速器上的训练/推理框架适配与集群调度，而非单一峰值算力宣传。",
-      "why": "在硬件代差下，软件与并行策略决定「能训多大、能跑多稳」。",
-      "source": "https://www.gov.cn",
-      "stars": 2,
-      "tag": "算力芯片"
+      "title": "WAIC2026上海开幕日",
+      "fact": "2026世界人工智能大会暨人工智能全球治理高级别会议7月17日在上海开幕（会期至20日），主题「智能伙伴，共创未来」；公开报道称将发布合作发展与伦理治理相关行动计划。",
+      "why": "中国把产业展会与全球治理高级别会议叠在同一周，是年度级议程设置。",
+      "source": "https://www.worldaic.com.cn/",
+      "stars": 3,
+      "tag": "大会"
     },
     {
-      "id": "cn-aero-01",
+      "id": "cn-ai-02",
       "country": "CN",
-      "domain": "aerospace",
-      "title": "载人航天运营常态化",
-      "fact": "中国空间站持续开展乘组轮换与货运补给相关公开任务节奏，国家队高可靠流程仍是主轴。",
-      "why": "与美商业航天高频形成分工：一边班车化入轨，一边载人与国家任务可靠。",
-      "source": "https://www.cnsa.gov.cn",
+      "domain": "ai",
+      "title": "Kimi K3发布引发全球报道",
+      "fact": "月之暗面Kimi K3（约2.8T参数）于7月16日发布后，7月17日新华社、联合早报、华尔街日报中文网等集中报道；计划本月下旬开源。",
+      "why": "开源参数纪录+对标美方前沿，成为WAIC开幕日的产品侧主线新闻。",
+      "source": "https://www.zaobao.com.sg/news/china/story20260717-9379062",
+      "stars": 3,
+      "tag": "大模型"
+    },
+    {
+      "id": "us-ai-01",
+      "country": "US",
+      "domain": "ai",
+      "title": "Fable成中方对标靶心",
+      "fact": "媒体报道Kimi K3综合水平接近Anthropic前沿模型Fable；美方闭源实验室仍以企业API与安全对齐产品为主轴。",
+      "why": "说明中美竞争已进入「点名对标闭源前沿」阶段。",
+      "source": "https://www.zaobao.com.sg/news/china/story20260717-9379062",
       "stars": 2,
-      "tag": "载人"
+      "tag": "闭源前沿"
     },
     {
       "id": "us-aero-01",
       "country": "US",
       "domain": "aerospace",
-      "title": "Starlink 在轨工作星破万",
-      "fact": "公开统计显示 Starlink 在轨工作卫星约 1.08 万量级（第三方跟踪口径）。",
-      "why": "星座规模本身是地缘与宽带基础设施双重变量。",
-      "source": "https://planet4589.org/space/con/star/stats.html",
+      "title": "SpaceX复用飞行破600次",
+      "fact": "7月中旬SpaceX完成第600次飞行履历助推器发射量级（Starlink任务，公开报道）。",
+      "why": "复用工业化的计数里程碑，仍是航天对照硬坐标。",
+      "source": "https://spaceflightnow.com/2026/07/13/live-coverage-spacex-to-launch-a-flight-proven-falcon-booster-for-600th-time/",
       "stars": 2,
-      "tag": "卫星星座"
+      "tag": "运载"
+    },
+    {
+      "id": "cn-aero-01",
+      "country": "CN",
+      "domain": "aerospace",
+      "title": "星座组网与国家队并行",
+      "fact": "中国低轨星座（国网/千帆）与长征系列发射继续按公开计划推进；载人空间站运营常态化。",
+      "why": "与美商业班车对照：一边爬坡组网，一边高可靠国家任务。",
+      "source": "https://spacenews.com/",
+      "stars": 1,
+      "tag": "航天"
+    },
+    {
+      "id": "cn-bio-01",
+      "country": "CN",
+      "domain": "biopharma",
+      "title": "创新药BD出海叙事持续",
+      "fact": "中国创新药对外授权/合作开发仍是产业主叙事之一。",
+      "why": "效率资产变现路径清晰，源头创新仍在爬坡。",
+      "source": "https://www.nmpa.gov.cn",
+      "stars": 1,
+      "tag": "医药"
     },
     {
       "id": "us-bio-01",
       "country": "US",
       "domain": "biopharma",
-      "title": "FDA 路径仍是全球金标准",
-      "fact": "创新药与器械企业仍以 FDA 审评节点作为全球注册与估值锚定之一。",
-      "why": "监管互认与支付体系决定商业化天花板。",
+      "title": "平台创新与FDA路径",
+      "fact": "美方平台型Biotech与FDA注册仍是全球金标准参照。",
+      "why": "支付与原研决定长期价值。",
       "source": "https://www.fda.gov",
       "stars": 1,
-      "tag": "监管"
+      "tag": "医药"
     },
     {
       "id": "cn-fut-01",
       "country": "CN",
       "domain": "future",
-      "title": "量子信息保持任务牵引",
-      "fact": "量子通信/计算相关国家任务与实验室进展仍以阶段成果与示范应用形式公开。",
-      "why": "属于长周期赛道：指标要看纠错与可用比特，而非单次实验标题。",
+      "title": "人形机器人试产讨论热",
+      "fact": "国内产业链推进工厂场景试点与零部件降本。",
+      "why": "场景制造是十五五相关长板候选。",
       "source": "https://www.gov.cn",
       "stars": 1,
-      "tag": "量子"
+      "tag": "机器人"
+    },
+    {
+      "id": "us-fut-01",
+      "country": "US",
+      "domain": "future",
+      "title": "具身智能资本继续布局",
+      "fact": "美方AI+机器人叙事与大厂投入并行。",
+      "why": "算法路径与中方制造路径形成对照。",
+      "source": "https://www.whitehouse.gov",
+      "stars": 1,
+      "tag": "机器人"
     }
   ],
-  "note": "示例归档日，用于验证前后翻页。"
+  "note": "7月17日：WAIC开幕日 + Kimi K3全球报道高峰。"
 }
