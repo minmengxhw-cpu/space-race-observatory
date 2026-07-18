@@ -28,10 +28,26 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100svh;
   font-family: var(--font-body);
   color: #e2e8f0;
   background: var(--color-void);
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+/* 手机触控与安全区 */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 #root {

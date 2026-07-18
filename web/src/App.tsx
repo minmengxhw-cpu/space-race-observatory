@@ -11,6 +11,8 @@ import { Timeline } from './components/Timeline'
 import { Section } from './components/Section'
 import { SourcesFooter } from './components/SourcesFooter'
 import { Ticker } from './components/Ticker'
+import { MobileNav } from './components/MobileNav'
+import { MobileSummary } from './components/MobileSummary'
 
 export default function App() {
   const [data, setData] = useState<SeedData | null>(null)
@@ -47,20 +49,20 @@ export default function App() {
       subtitle: '国家 + 商业（SpaceX 为主力）',
       metrics: {
         past: [
-          { key: '年发射峰值', value: '193 次 (2025, SpaceNews)' },
+          { key: '年发射峰值', value: '193 次 (2025)' },
           { key: '全球份额 2025', value: '与中国合计约 88%' },
           { key: '主力运营商', value: 'SpaceX 占绝对多数' },
-          { key: '其他运载', value: 'ULA / Rocket Lab / Blue Origin 等' },
+          { key: '其他运载', value: 'ULA / Rocket Lab 等' },
         ],
         present: [
           { key: '结构', value: '商业发射主导' },
-          { key: '复用能力', value: '全球领先（SpaceX Falcon）' },
-          { key: 'Starlink 在轨工作', value: '10,832 星' },
-          { key: '2026 节奏', value: 'SpaceX YTD 86 次领跑' },
+          { key: '复用能力', value: '全球领先（Falcon）' },
+          { key: 'Starlink 在轨', value: '10,832 星' },
+          { key: '2026 节奏', value: 'SpaceX YTD 86 次' },
         ],
         future: [
-          { key: '发射频次', value: '取决于 Starship 换代节奏' },
-          { key: '深空', value: 'Artemis + 商业月球物流' },
+          { key: '发射频次', value: '视 Starship 换代' },
+          { key: '深空', value: 'Artemis + 商业月球' },
           { key: '星座', value: 'Starlink 继续扩容' },
           { key: '竞争格局', value: '美中双强持续' },
         ],
@@ -72,21 +74,19 @@ export default function App() {
     if (!data) return []
     return [
       `数据截至 ${data.updatedAt}`,
-      'Falcon 家族累计 678 次发射',
+      'Falcon 累计 678 次',
       '一级着陆 638 / 651',
-      'Starlink 在轨工作 10,832',
-      '2025 中国轨道发射 93 次',
-      '2025 美国轨道发射 193 次',
+      'Starlink 在轨 10,832',
+      '2025 中国 93 次 · 美国 193 次',
       'SpaceX 2026 YTD 86 / 目标 145',
-      '千帆约 200 星 · 国网约 168 星',
-      '科普可视化 · 非投资建议',
+      '千帆≈200 · 国网≈168',
     ]
   }, [data])
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center starfield px-4">
-        <div className="hud-panel p-8 max-w-md text-center">
+      <div className="min-h-[100svh] flex items-center justify-center starfield px-4">
+        <div className="hud-panel p-6 sm:p-8 max-w-md text-center w-full">
           <p className="text-amber-300 font-display tracking-widest">遥测中断</p>
           <p className="mt-2 text-slate-400 text-sm">{error}</p>
         </div>
@@ -96,7 +96,7 @@ export default function App() {
 
   if (!data || !leftCompare) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center starfield gap-4">
+      <div className="min-h-[100svh] flex flex-col items-center justify-center starfield gap-4">
         <div className="w-10 h-10 rounded-full border-2 border-cyan-400/30 border-t-cyan-400 animate-spin" />
         <p className="font-display text-cyan-300/80 tracking-[0.35em] text-xs">ACQUIRING SIGNAL</p>
       </div>
@@ -106,7 +106,7 @@ export default function App() {
   const kpiBlock = data.kpis[timeMode]
 
   return (
-    <div className="min-h-screen bg-void text-slate-100">
+    <div className="min-h-[100svh] bg-void text-slate-100 pb-[calc(4.25rem+env(safe-area-inset-bottom,0px))] md:pb-0">
       {showHero && (
         <Hero
           title={data.meta.title}
@@ -119,17 +119,17 @@ export default function App() {
 
       <div ref={dashRef} className="relative">
         <div className="absolute inset-0 starfield opacity-50 pointer-events-none" />
-        <div className="absolute inset-0 grid-bg opacity-25 pointer-events-none" />
+        <div className="absolute inset-0 grid-bg opacity-25 pointer-events-none hidden sm:block" />
 
-        <header className="sticky top-0 z-40 nav-glass">
-          <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3 min-w-0">
+        <header
+          className="sticky top-0 z-40 nav-glass"
+          style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
+        >
+          <div className="max-w-6xl mx-auto px-3 sm:px-4 h-12 sm:h-14 flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 min-w-0">
               <span className="status-dot shrink-0" />
-              <span className="font-display text-sm tracking-wider truncate text-slate-100">
+              <span className="font-display text-xs sm:text-sm tracking-wider truncate text-slate-100">
                 {data.meta.title}
-              </span>
-              <span className="hidden lg:inline text-[10px] font-mono-num text-slate-500 tracking-wider">
-                OBSERVATORY v0.2
               </span>
             </div>
             <nav className="hidden md:flex items-center gap-5 text-xs text-slate-400">
@@ -145,16 +145,16 @@ export default function App() {
                 </a>
               ))}
             </nav>
-            <div className="flex items-center gap-1 p-0.5 rounded border border-slate-700/90 bg-space/90 text-[11px]">
+            <div className="flex items-center gap-0.5 p-0.5 rounded border border-slate-700/90 bg-space/90 text-[10px] sm:text-[11px] shrink-0">
               {data.usToggle.options.map((opt) => (
                 <button
                   key={opt.id}
                   type="button"
                   onClick={() => setCompareMode(opt.id)}
-                  className={`px-2.5 py-1 rounded-sm transition-colors ${
+                  className={`px-2 sm:px-2.5 py-1.5 min-h-[36px] rounded-sm transition-colors touch-manipulation ${
                     compareMode === opt.id
                       ? 'bg-cyan-400/15 text-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.2)]'
-                      : 'text-slate-500 hover:text-slate-300'
+                      : 'text-slate-500 active:text-slate-300'
                   }`}
                 >
                   {opt.id === 'spacex' ? 'SpaceX' : '美国'}
@@ -164,64 +164,75 @@ export default function App() {
           </div>
         </header>
 
-        <Ticker items={tickerItems} />
+        <div className="hidden sm:block">
+          <Ticker items={tickerItems} />
+        </div>
+        {/* 手机：单行精简 ticker，少占高度 */}
+        <div className="sm:hidden overflow-hidden border-b border-slate-800/80 bg-black/25 py-1.5">
+          <p className="px-3 text-[10px] font-mono-num text-slate-500 truncate">
+            <span className="text-emerald-400/80 mr-1.5">●</span>
+            数据 {data.updatedAt} · SX 86 YTD · 着陆 638 · Starlink 1.08万
+          </p>
+        </div>
 
-        <main className="relative z-10 max-w-6xl mx-auto px-4 pb-8">
+        <main className="relative z-10 max-w-6xl mx-auto px-3 sm:px-4 pb-6 sm:pb-8">
           <Section
             id="overview"
             eyebrow="01 · DASHBOARD"
             title="总览对照台"
-            desc="切换时间维度，对比 SpaceX（或美国合计）与中国在发射、回收与星座上的核心指标。标注「规划」的数据为公开目标，非承诺。"
+            desc="切换时间维度，对比 SpaceX（或美国合计）与中国。标注「规划」的为公开目标，非承诺。"
           >
-            <div className="mb-8">
+            <MobileSummary data={data} timeMode={timeMode} compareMode={compareMode} />
+
+            <div className="mb-5 sm:mb-8">
               <TimeModeTabs value={timeMode} onChange={setTimeMode} modeLabel={kpiBlock.label} />
             </div>
             <KpiStrip items={kpiBlock.items} />
-            <div className="mt-8">
+            <div className="mt-5 sm:mt-8">
               <DualCompare left={leftCompare} right={data.compare.china} mode={timeMode} />
             </div>
           </Section>
 
-          <div className="section-rule my-2" />
+          <div className="section-rule my-1 sm:my-2" />
 
           <Section
             id="launch"
             eyebrow="02 · LAUNCH"
             title="发射成绩"
-            desc="年度轨道发射次数对照。美国合计含 SpaceX 及其他美国运营商；图表可切换对照主体。2026 为 YTD 约数。"
+            desc="年度轨道发射对照。可切换 SpaceX / 美国合计。2026 为 YTD。"
           >
             <LaunchChart data={data.yearlyLaunches} compareMode={compareMode} />
           </Section>
 
-          <div className="section-rule my-2" />
+          <div className="section-rule my-1 sm:my-2" />
 
           <Section
             id="reuse"
             eyebrow="03 · REUSE"
             title="回收与复用"
-            desc="SpaceX 已将一级回收做成工业流水线（638 次着陆成功）；中国处于验证与加速试验阶段——这是中美航天成本结构差异的关键维度。"
+            desc="SpaceX 一级着陆 638 次成功；中国仍以验证与试验为主。"
           >
             <ReusePanel spacex={data.reuse.spacex} china={data.reuse.china} />
           </Section>
 
-          <div className="section-rule my-2" />
+          <div className="section-rule my-1 sm:my-2" />
 
           <Section
             id="constellation"
             eyebrow="04 · CONSTELLATION"
             title="卫星与星座"
-            desc="Starlink 已大规模在轨运营（工作星 10,832）；中国国网、千帆处于组网建设期，规划同为万星量级。"
+            desc="Starlink 工作星约 10,832；国网 / 千帆组网中，规划万星量级。"
           >
             <ConstellationPanel items={data.constellations} />
           </Section>
 
-          <div className="section-rule my-2" />
+          <div className="section-rule my-1 sm:my-2" />
 
           <Section
             id="timeline"
             eyebrow="05 · TIMELINE"
             title="时间叙事"
-            desc="从首次着陆、星链启动，到空间站与年发射纪录——串起近十年航天加速史。"
+            desc="从首次着陆到年发射纪录——近十年航天加速史。"
           >
             <Timeline items={data.milestones} />
           </Section>
@@ -233,6 +244,8 @@ export default function App() {
           updatedAt={data.updatedAt}
         />
       </div>
+
+      <MobileNav />
     </div>
   )
 }
