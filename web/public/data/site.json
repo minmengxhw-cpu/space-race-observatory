@@ -1,0 +1,25 @@
+{
+  "name": "双轨",
+  "nameEn": "Dual Track",
+  "tagline": "中美前沿科技 · 每日对照",
+  "subtitle": "每天 3 分钟，同一坐标系",
+  "updatedAt": "2026-07-18",
+  "defaultDate": "2026-07-18",
+  "domains": [
+    { "id": "ai", "label": "人工智能", "short": "AI", "color": "violet" },
+    { "id": "aerospace", "label": "航空航天", "short": "航天", "color": "cyan" },
+    { "id": "biopharma", "label": "生物医药", "short": "医药", "color": "emerald" },
+    { "id": "future", "label": "未来产业", "short": "未来", "color": "amber" }
+  ],
+  "futureTags": [
+    { "id": "robot", "label": "人形机器人" },
+    { "id": "quantum", "label": "量子" },
+    { "id": "fusion", "label": "核聚变" }
+  ],
+  "disclaimer": "L1 只陈述事实与影响，不做胜负判断。观察类文字集中在 L3 每周小结。每条动态必须带来源。计划每日更新；指标看板按月/季复核。",
+  "updateCadence": {
+    "l1": "daily",
+    "l2": "monthly",
+    "l3": "weekly"
+  }
+}

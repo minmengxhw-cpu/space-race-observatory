@@ -1,0 +1,47 @@
+{
+  "domain": "aerospace",
+  "updatedAt": "2026-07-18",
+  "cadence": "monthly",
+  "metrics": [
+    {
+      "id": "launches_2025",
+      "label": "2025 轨道发射次数",
+      "unit": "次",
+      "cn": { "value": 93, "display": "93" },
+      "us": { "value": 193, "display": "193" },
+      "note": "公开统计口径，含尝试"
+    },
+    {
+      "id": "spacex_ytd",
+      "label": "SpaceX 2026 YTD 发射",
+      "unit": "次",
+      "cn": { "value": 0, "display": "—" },
+      "us": { "value": 86, "display": "86（目标~145）" },
+      "note": "公司口径；中国侧用国家合计另表"
+    },
+    {
+      "id": "reuse",
+      "label": "一级工业复用成熟度",
+      "unit": "定性",
+      "cn": { "value": 40, "display": "验证加速" },
+      "us": { "value": 95, "display": "Falcon 常态 30+ 飞" },
+      "note": "美方工业化领先"
+    },
+    {
+      "id": "starlink",
+      "label": "巨型星座在轨工作星（估）",
+      "unit": "星",
+      "cn": { "value": 368, "display": "国网+千帆 ~368" },
+      "us": { "value": 10832, "display": "Starlink ~10832" },
+      "note": "第三方/公开报道量级"
+    },
+    {
+      "id": "crew",
+      "label": "载人近地运营",
+      "unit": "定性",
+      "cn": { "value": 90, "display": "空间站常态" },
+      "us": { "value": 88, "display": "商业载人+ISS" },
+      "note": "互有体系优势"
+    }
+  ]
+}

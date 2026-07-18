@@ -1,0 +1,73 @@
+{
+  "date": "2026-07-17",
+  "focus": ["us-ai-01"],
+  "items": [
+    {
+      "id": "us-ai-01",
+      "country": "US",
+      "domain": "ai",
+      "title": "企业侧 Agent 试点扩围",
+      "fact": "多家美资云与软件厂商继续把「可调用工具的智能体」作为企业产品主卖点，强调工作流嵌入。",
+      "why": "下半场从聊天转向执行；评测标准将从答题转向任务完成率。",
+      "source": "https://www.anthropic.com",
+      "stars": 3,
+      "tag": "智能体"
+    },
+    {
+      "id": "cn-ai-01",
+      "country": "CN",
+      "domain": "ai",
+      "title": "国产算力软件栈适配",
+      "fact": "公开讨论聚焦国产加速器上的训练/推理框架适配与集群调度，而非单一峰值算力宣传。",
+      "why": "在硬件代差下，软件与并行策略决定「能训多大、能跑多稳」。",
+      "source": "https://www.gov.cn",
+      "stars": 2,
+      "tag": "算力芯片"
+    },
+    {
+      "id": "cn-aero-01",
+      "country": "CN",
+      "domain": "aerospace",
+      "title": "载人航天运营常态化",
+      "fact": "中国空间站持续开展乘组轮换与货运补给相关公开任务节奏，国家队高可靠流程仍是主轴。",
+      "why": "与美商业航天高频形成分工：一边班车化入轨，一边载人与国家任务可靠。",
+      "source": "https://www.cnsa.gov.cn",
+      "stars": 2,
+      "tag": "载人"
+    },
+    {
+      "id": "us-aero-01",
+      "country": "US",
+      "domain": "aerospace",
+      "title": "Starlink 在轨工作星破万",
+      "fact": "公开统计显示 Starlink 在轨工作卫星约 1.08 万量级（第三方跟踪口径）。",
+      "why": "星座规模本身是地缘与宽带基础设施双重变量。",
+      "source": "https://planet4589.org/space/con/star/stats.html",
+      "stars": 2,
+      "tag": "卫星星座"
+    },
+    {
+      "id": "us-bio-01",
+      "country": "US",
+      "domain": "biopharma",
+      "title": "FDA 路径仍是全球金标准",
+      "fact": "创新药与器械企业仍以 FDA 审评节点作为全球注册与估值锚定之一。",
+      "why": "监管互认与支付体系决定商业化天花板。",
+      "source": "https://www.fda.gov",
+      "stars": 1,
+      "tag": "监管"
+    },
+    {
+      "id": "cn-fut-01",
+      "country": "CN",
+      "domain": "future",
+      "title": "量子信息保持任务牵引",
+      "fact": "量子通信/计算相关国家任务与实验室进展仍以阶段成果与示范应用形式公开。",
+      "why": "属于长周期赛道：指标要看纠错与可用比特，而非单次实验标题。",
+      "source": "https://www.gov.cn",
+      "stars": 1,
+      "tag": "量子"
+    }
+  ],
+  "note": "示例归档日，用于验证前后翻页。"
+}

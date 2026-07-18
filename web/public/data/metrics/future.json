@@ -1,0 +1,48 @@
+{
+  "domain": "future",
+  "updatedAt": "2026-07-18",
+  "cadence": "monthly",
+  "subtracks": ["robot", "quantum", "fusion"],
+  "metrics": [
+    {
+      "id": "robot",
+      "label": "人形机器人 · 量产与场景",
+      "unit": "定性",
+      "cn": { "value": 78, "display": "供应链+工厂试点" },
+      "us": { "value": 80, "display": "算法+资本" },
+      "note": "路径分化"
+    },
+    {
+      "id": "quantum",
+      "label": "量子信息 · 可用化进度",
+      "unit": "定性",
+      "cn": { "value": 70, "display": "任务牵引" },
+      "us": { "value": 82, "display": "科技公司+国防" },
+      "note": "长周期"
+    },
+    {
+      "id": "fusion",
+      "label": "核聚变 · 工程化",
+      "unit": "定性",
+      "cn": { "value": 65, "display": "装置与材料" },
+      "us": { "value": 72, "display": "私营+国家实验室" },
+      "note": "均未商业化"
+    },
+    {
+      "id": "semi",
+      "label": "（延伸）先进算力可及",
+      "unit": "定性",
+      "cn": { "value": 55, "display": "替代+效率" },
+      "us": { "value": 93, "display": "设计+先进制造联盟" },
+      "note": "与 AI 强耦合"
+    },
+    {
+      "id": "energy",
+      "label": "（延伸）新能源制造",
+      "unit": "定性",
+      "cn": { "value": 92, "display": "规模优势" },
+      "us": { "value": 70, "display": "IRA 回流中" },
+      "note": "中方制造领先"
+    }
+  ]
+}

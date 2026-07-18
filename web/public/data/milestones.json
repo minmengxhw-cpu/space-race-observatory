@@ -1,0 +1,53 @@
+{
+  "updatedAt": "2026-07-18",
+  "items": [
+    {
+      "date": "2022-11",
+      "domain": "ai",
+      "side": "US",
+      "title": "ChatGPT 引爆生成式 AI",
+      "desc": "大模型进入大众产品期。"
+    },
+    {
+      "date": "2024–25",
+      "domain": "ai",
+      "side": "CN",
+      "title": "开源模型全球声量上升",
+      "desc": "效率与开源权重成为中方可见坐标。"
+    },
+    {
+      "date": "2015-12",
+      "domain": "aerospace",
+      "side": "US",
+      "title": "Falcon 9 首次陆地成功着陆",
+      "desc": "复用进入实用阶段。"
+    },
+    {
+      "date": "2021+",
+      "domain": "aerospace",
+      "side": "CN",
+      "title": "空间站建造与运营",
+      "desc": "载人近地能力体系化。"
+    },
+    {
+      "date": "2023–26",
+      "domain": "biopharma",
+      "side": "CN",
+      "title": "License-out 大单增多",
+      "desc": "中国创新资产进入跨国药企视野。"
+    },
+    {
+      "date": "2020s",
+      "domain": "future",
+      "side": "BOTH",
+      "title": "人形机器人进入产业议程",
+      "desc": "中美分别押注场景制造与算法资本。"
+    }
+  ],
+  "weeklyNote": {
+    "weekOf": "2026-07-14",
+    "title": "本周观察（示例）",
+    "body": "AI 仍是 G2 最热坐标系：美方握有闭源天花板与算力，中方用开源与成本叙事换可见度。航天上，发射班车化 vs 星座爬坡是主线。医药看 BD 出海与原研差距是否收窄。未来产业勿被单日新闻带偏，以季度硬指标校准。",
+    "label": "观察 · 非胜负判断"
+  }
+}

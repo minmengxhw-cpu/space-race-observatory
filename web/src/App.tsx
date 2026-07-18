@@ -1,101 +1,224 @@
-import { useCallback, useEffect, useState } from 'react'
-import type { SeedData } from './types'
-import { parseHash, setSectorHash, type SectorId } from './lib/routes'
-import { AppShell } from './components/shell/AppShell'
-import { HubPage } from './pages/HubPage'
-import { AiPage } from './pages/AiPage'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import type {
+  DailyFile,
+  DomainId,
+  MetricsFile,
+  MilestoneItem,
+  SiteConfig,
+  ViewId,
+} from './lib/dualTypes'
+import { HomePage } from './pages/dual/HomePage'
+import { DomainPage } from './pages/dual/DomainPage'
+import { ArchivePage } from './pages/dual/ArchivePage'
 import { AerospacePage } from './pages/AerospacePage'
-import { BiopharmaPage } from './pages/BiopharmaPage'
-import { FuturePage } from './pages/FuturePage'
+import type { SeedData } from './types'
 
-type HubData = Parameters<typeof HubPage>[0]['data']
-type AiData = Parameters<typeof AiPage>[0]['data']
-type BioData = Parameters<typeof BiopharmaPage>[0]['data']
-type FutureData = Parameters<typeof FuturePage>[0]['data']
-
+/**
+ * 双轨 · 中美前沿科技对照
+ * V0：每日 L1 首页 + 领域 L2/L3 + 归档 + 航天深潜
+ */
 export default function App() {
-  const [sector, setSector] = useState<SectorId>(() =>
-    typeof window !== 'undefined' ? parseHash() : 'hub',
-  )
-  const [hub, setHub] = useState<HubData | null>(null)
-  const [ai, setAi] = useState<AiData | null>(null)
-  const [space, setSpace] = useState<SeedData | null>(null)
-  const [bio, setBio] = useState<BioData | null>(null)
-  const [future, setFuture] = useState<FutureData | null>(null)
+  const [site, setSite] = useState<SiteConfig | null>(null)
+  const [dates, setDates] = useState<string[]>([])
+  const [date, setDate] = useState<string>('')
+  const [daily, setDaily] = useState<DailyFile | null>(null)
+  const [filter, setFilter] = useState<DomainId | 'all'>('all')
+  const [view, setView] = useState<ViewId>('home')
+  const [domainId, setDomainId] = useState<DomainId>('ai')
+  const [metricsMap, setMetricsMap] = useState<Partial<Record<DomainId, MetricsFile>>>({})
+  const [milestones, setMilestones] = useState<MilestoneItem[]>([])
+  const [weeklyNote, setWeeklyNote] = useState<{
+    weekOf: string
+    title: string
+    body: string
+    label: string
+  } | null>(null)
+  const [spaceSeed, setSpaceSeed] = useState<SeedData | null>(null)
+  const [recentByDomain, setRecentByDomain] = useState<Partial<Record<DomainId, DailyFile['items']>>>({})
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    const onHash = () => setSector(parseHash())
-    window.addEventListener('hashchange', onHash)
-    return () => window.removeEventListener('hashchange', onHash)
-  }, [])
+  const base = import.meta.env.BASE_URL
 
+  // boot
   useEffect(() => {
-    const base = import.meta.env.BASE_URL
     Promise.all([
-      fetch(`${base}data/g2-hub.json`).then((r) => r.json()),
-      fetch(`${base}data/ai.json`).then((r) => r.json()),
+      fetch(`${base}data/site.json`).then((r) => r.json()),
+      fetch(`${base}data/daily/index.json`).then((r) => r.json()),
+      fetch(`${base}data/milestones.json`).then((r) => r.json()),
       fetch(`${base}data/seed.json`).then((r) => r.json()),
-      fetch(`${base}data/biopharma.json`).then((r) => r.json()),
-      fetch(`${base}data/future.json`).then((r) => r.json()),
     ])
-      .then(([h, a, s, b, f]) => {
-        setHub(h)
-        setAi(a)
-        setSpace(s)
-        setBio(b)
-        setFuture(f)
+      .then(([s, idx, ms, seed]) => {
+        setSite(s)
+        setDates(idx.dates)
+        setDate(idx.latest || s.defaultDate)
+        setMilestones(ms.items || [])
+        setWeeklyNote(ms.weeklyNote || null)
+        setSpaceSeed(seed)
       })
       .catch((e: Error) => setError(e.message))
-  }, [])
+  }, [base])
 
-  const go = useCallback((id: SectorId) => {
-    setSector(id)
-    setSectorHash(id)
+  // load daily when date changes
+  useEffect(() => {
+    if (!date) return
+    fetch(`${base}data/daily/${date}.json`)
+      .then((r) => {
+        if (!r.ok) throw new Error(`无 ${date} 数据`)
+        return r.json()
+      })
+      .then(setDaily)
+      .catch((e: Error) => setError(e.message))
+  }, [base, date])
+
+  // load metrics lazily
+  useEffect(() => {
+    if (view !== 'domain') return
+    if (metricsMap[domainId]) return
+    fetch(`${base}data/metrics/${domainId}.json`)
+      .then((r) => r.json())
+      .then((m: MetricsFile) => setMetricsMap((prev) => ({ ...prev, [domainId]: m })))
+      .catch(() => {})
+  }, [base, view, domainId, metricsMap])
+
+  // build recent stream from all loaded dailies (index dates)
+  useEffect(() => {
+    if (!dates.length) return
+    Promise.all(
+      dates.map((d) =>
+        fetch(`${base}data/daily/${d}.json`)
+          .then((r) => r.json())
+          .catch(() => null),
+      ),
+    ).then((files: (DailyFile | null)[]) => {
+      const map: Partial<Record<DomainId, DailyFile['items']>> = {
+        ai: [],
+        aerospace: [],
+        biopharma: [],
+        future: [],
+      }
+      for (const f of files) {
+        if (!f) continue
+        for (const it of f.items) {
+          map[it.domain] = [...(map[it.domain] || []), { ...it, title: `${f.date} · ${it.title}` }]
+        }
+      }
+      setRecentByDomain(map)
+    })
+  }, [base, dates])
+
+  const goPrev = useCallback(() => {
+    const i = dates.indexOf(date)
+    if (i >= 0 && i < dates.length - 1) setDate(dates[i + 1])
+  }, [dates, date])
+
+  const goNext = useCallback(() => {
+    const i = dates.indexOf(date)
+    if (i > 0) setDate(dates[i - 1])
+  }, [dates, date])
+
+  const openDomain = useCallback((d: DomainId) => {
+    setDomainId(d)
+    setView('domain')
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [])
 
-  if (error) {
+  const title = useMemo(() => {
+    if (!site) return '双轨'
+    if (view === 'home') return `${site.name} · ${date}`
+    if (view === 'archive') return `${site.name} · 归档`
+    if (view === 'deep-aerospace') return `${site.name} · 航天深潜`
+    return `${site.name} · ${site.domains.find((d) => d.id === domainId)?.label}`
+  }, [site, view, date, domainId])
+
+  useEffect(() => {
+    document.title = title
+  }, [title])
+
+  if (error && !daily) {
     return (
-      <div className="min-h-[100svh] flex items-center justify-center starfield px-4">
-        <div className="hud-panel p-8 text-center">
-          <p className="text-amber-300 font-display text-lg">遥测中断</p>
-          <p className="mt-2 text-slate-300">{error}</p>
-        </div>
+      <div className="min-h-[100svh] bg-void text-slate-200 flex items-center justify-center p-6">
+        <p>{error}</p>
       </div>
     )
   }
 
-  if (!hub || !ai || !space || !bio || !future) {
+  if (!site || !daily) {
     return (
-      <div className="min-h-[100svh] flex flex-col items-center justify-center starfield gap-4">
-        <div className="w-10 h-10 rounded-full border-2 border-violet-400/30 border-t-violet-400 animate-spin" />
-        <p className="font-display text-violet-300 tracking-[0.3em] text-sm">LOADING G2 TREE…</p>
+      <div className="min-h-[100svh] bg-void flex flex-col items-center justify-center gap-3">
+        <div className="w-9 h-9 border-2 border-cyan-400/30 border-t-cyan-400 rounded-full animate-spin" />
+        <p className="font-display text-sm tracking-widest text-slate-400">双轨加载中</p>
       </div>
     )
   }
-
-  const updatedAt =
-    sector === 'ai'
-      ? ai.updatedAt
-      : sector === 'aerospace'
-        ? space.updatedAt
-        : sector === 'biopharma'
-          ? bio.updatedAt
-          : sector === 'future'
-            ? future.updatedAt
-            : hub.updatedAt
 
   return (
-    <div className="relative">
-      <div className="absolute inset-0 starfield opacity-40 pointer-events-none" />
-      <AppShell sector={sector} onSector={go} updatedAt={updatedAt}>
-        {sector === 'hub' && <HubPage data={hub} onOpen={go} />}
-        {sector === 'ai' && <AiPage data={ai} />}
-        {sector === 'aerospace' && <AerospacePage data={space} />}
-        {sector === 'biopharma' && <BiopharmaPage data={bio} />}
-        {sector === 'future' && <FuturePage data={future} />}
-      </AppShell>
+    <div className="min-h-[100svh] bg-void text-slate-100">
+      <div className="fixed inset-0 starfield opacity-30 pointer-events-none" />
+      <div className="relative z-10">
+        {view === 'home' && (
+          <HomePage
+            site={site}
+            daily={daily}
+            dates={dates}
+            filter={filter}
+            onFilter={setFilter}
+            onPrev={goPrev}
+            onNext={goNext}
+            onArchive={() => setView('archive')}
+            onDomain={openDomain}
+          />
+        )}
+        {view === 'domain' && (
+          <>
+            <DomainPage
+              site={site}
+              domainId={domainId}
+              metrics={metricsMap[domainId] || null}
+              milestones={milestones}
+              recentItems={recentByDomain[domainId] || []}
+              onBack={() => setView('home')}
+              onDeepAerospace={
+                domainId === 'aerospace' ? () => setView('deep-aerospace') : undefined
+              }
+            />
+            {weeklyNote && domainId === 'ai' && (
+              <div className="max-w-lg mx-auto px-3 pb-10 sm:max-w-2xl">
+                <div className="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-4">
+                  <p className="text-xs font-bold text-amber-400">{weeklyNote.label}</p>
+                  <p className="mt-1 font-display text-lg font-bold text-white">{weeklyNote.title}</p>
+                  <p className="mt-2 text-sm text-slate-200 leading-relaxed">{weeklyNote.body}</p>
+                  <p className="mt-2 text-xs text-slate-500">周次 {weeklyNote.weekOf}</p>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+        {view === 'archive' && (
+          <ArchivePage
+            dates={dates}
+            current={date}
+            onBack={() => setView('home')}
+            onPick={(d) => {
+              setDate(d)
+              setView('home')
+            }}
+          />
+        )}
+        {view === 'deep-aerospace' && spaceSeed && (
+          <div>
+            <div className="sticky top-0 z-40 bg-void/95 border-b border-slate-800 px-3 py-2">
+              <button
+                type="button"
+                className="text-sm font-semibold text-cyan-400 min-h-[40px]"
+                onClick={() => setView('domain')}
+              >
+                ← 返回航天领域页
+              </button>
+            </div>
+            <AerospacePage data={spaceSeed} />
+          </div>
+        )}
+      </div>
     </div>
   )
 }

@@ -1,0 +1,95 @@
+{
+  "date": "2026-07-18",
+  "focus": ["cn-ai-01", "us-aero-01"],
+  "items": [
+    {
+      "id": "cn-ai-01",
+      "country": "CN",
+      "domain": "ai",
+      "title": "开源模型继续抢效率叙事",
+      "fact": "国内开源/高效训练路线（DeepSeek、通义等阵营）仍是公开讨论与社区传播的主线，强调推理成本与工程效率。",
+      "why": "在先进算力受限背景下，「同等效果更低成本」成为中方对外可见的差异化坐标。",
+      "source": "https://github.com/deepseek-ai",
+      "stars": 3,
+      "tag": "开源生态"
+    },
+    {
+      "id": "us-ai-01",
+      "country": "US",
+      "domain": "ai",
+      "title": "闭源三强维持产品节奏",
+      "fact": "OpenAI / Anthropic / Google 旗舰模型与企业 API 仍是全球开发者与政企采购的默认参照系。",
+      "why": "闭源前沿决定「天花板」心智；中美差距更多体现在生态与算力，而非单一榜单分数。",
+      "source": "https://openai.com",
+      "stars": 2,
+      "tag": "大模型"
+    },
+    {
+      "id": "us-aero-01",
+      "country": "US",
+      "domain": "aerospace",
+      "title": "Falcon 高频发射节奏持续",
+      "fact": "SpaceX Falcon 家族 2026 年已完成约 86 次发射（YTD，公开统计口径），年度目标区间约 145 次量级。",
+      "why": "高频复用把发射从「项目」变成「班车」，继续拉开商业航天工业化差距。",
+      "source": "https://spacexnow.com/stats",
+      "stars": 3,
+      "tag": "运载发射"
+    },
+    {
+      "id": "cn-aero-01",
+      "country": "CN",
+      "domain": "aerospace",
+      "title": "低轨星座组网推进",
+      "fact": "千帆、国网等低轨星座持续批次部署，公开报道量级约数百星在轨建设中，规划仍为万星级。",
+      "why": "中国在「星座密度」上处于爬坡期，与 Starlink 的差距是规模与节奏，而非有无规划。",
+      "source": "https://spacenews.com/qianfan-constellation-deployment-hits-200-satellites-with-long-march-8-and-6a-launches/",
+      "stars": 2,
+      "tag": "卫星星座"
+    },
+    {
+      "id": "cn-bio-01",
+      "country": "CN",
+      "domain": "biopharma",
+      "title": "创新药出海 BD 仍是主叙事",
+      "fact": "License-out / 合作开发仍是中国创新资产进入全球市场的主路径之一，公开市场持续跟踪大额授权。",
+      "why": "说明「临床效率 + 工程化管线」已具备对外议价能力，但源头靶点与全球销售网络仍是短板。",
+      "source": "https://www.nmpa.gov.cn",
+      "stars": 2,
+      "tag": "创新药"
+    },
+    {
+      "id": "us-bio-01",
+      "country": "US",
+      "domain": "biopharma",
+      "title": "平台型 Biotech 定义病种",
+      "fact": "美方在 ADC、细胞基因、代谢（如 GLP-1 类）等平台与已上市重磅上仍占全球标准与定价话语权。",
+      "why": "原研平台决定十年管线价值；中美对比要看 first-in-class，而不仅是仿创速度。",
+      "source": "https://www.fda.gov",
+      "stars": 2,
+      "tag": "平台创新"
+    },
+    {
+      "id": "cn-fut-01",
+      "country": "CN",
+      "domain": "future",
+      "title": "人形机器人进入场景试产",
+      "fact": "国内多家整机与零部件企业推进人形机器人小批量与工厂场景试点，供应链成本曲线是讨论焦点。",
+      "why": "十五五语境下，制造场景+零部件集群是中方可能的长板，通用智能闭环仍早。",
+      "source": "https://www.gov.cn",
+      "stars": 2,
+      "tag": "人形机器人"
+    },
+    {
+      "id": "us-fut-01",
+      "country": "US",
+      "domain": "future",
+      "title": "AI+机器人资本叙事升温",
+      "fact": "美方大厂与创业公司并行推进具身智能与机器人大脑，算法与数据飞轮是主叙事。",
+      "why": "与中国「整机降本」路径形成对照：一边算法资本，一边场景制造。",
+      "source": "https://www.whitehouse.gov",
+      "stars": 1,
+      "tag": "具身智能"
+    }
+  ],
+  "note": "V0 示例日：部分条目为基于公开格局的结构化示例，正式运营后改为严格「过去 24 小时」事件。"
+}

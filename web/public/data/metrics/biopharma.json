@@ -1,0 +1,47 @@
+{
+  "domain": "biopharma",
+  "updatedAt": "2026-07-18",
+  "cadence": "monthly",
+  "metrics": [
+    {
+      "id": "origin",
+      "label": "源头原研/平台创新",
+      "unit": "定性",
+      "cn": { "value": 58, "display": "爬坡中" },
+      "us": { "value": 94, "display": "全球领先" },
+      "note": "相对指数"
+    },
+    {
+      "id": "clinical_speed",
+      "label": "临床推进效率",
+      "unit": "定性",
+      "cn": { "value": 88, "display": "入组快" },
+      "us": { "value": 70, "display": "成本高·标准严" },
+      "note": "中方速度优势"
+    },
+    {
+      "id": "bd",
+      "label": "License-out / 出海议价",
+      "unit": "定性",
+      "cn": { "value": 80, "display": "升温" },
+      "us": { "value": 92, "display": "全球销售网" },
+      "note": "路径不同"
+    },
+    {
+      "id": "adc_cgt",
+      "label": "ADC / 细胞基因热度",
+      "unit": "定性",
+      "cn": { "value": 82, "display": "管线密" },
+      "us": { "value": 90, "display": "上市与标准" },
+      "note": "赛道内卷+突破并存"
+    },
+    {
+      "id": "device",
+      "label": "高端器械与影像 AI",
+      "unit": "定性",
+      "cn": { "value": 75, "display": "中端替代+AI" },
+      "us": { "value": 90, "display": "品牌与标准" },
+      "note": ""
+    }
+  ]
+}

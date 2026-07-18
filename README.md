@@ -1,37 +1,50 @@
-# G2 科技树 · 中美科技对照台
+# 双轨 · 中美前沿科技对照
 
-中美（G2）科技实力与技术路线科普对照平台。
+按 [PRD V0.1](docs/PRD-v0.1-中美前沿科技对比站.md) 实现的**每日对照**静态站。
 
 **在线：** https://minmengxhw-cpu.github.io/space-race-observatory/
 
-## 赛道
+## 产品
 
-| 路由 | 内容 |
-|------|------|
-| `#/` | 总览 · 科技树分层 |
-| `#/ai` | **人工智能（核心）** 头部模型、算力栈、路线图 |
-| `#/aerospace` | 航空航天 · SpaceX vs 中国 |
-| `#/biopharma` | 生物医药 |
-| `#/future` | 十五五未来产业 vs 美国政策工具箱 |
+- **L1 每日动态**：中美两栏对照卡，事实 + 意义 + 来源
+- **L2 指标看板**：领域页双向条形图
+- **L3 里程碑 / 周观察**：沉淀判断（标注为观察）
+- 手机优先 375px；按日前后翻页 + 归档日历
+- 航天深潜页（型号墙等）从「航空航天」领域进入
 
-## 本地开发
+## 数据（真相源）
 
-```bash
-cd web
-npm install
-npm run dev
+```
+web/public/data/
+  site.json
+  daily/YYYY-MM-DD.json
+  daily/index.json          # dates + latest
+  metrics/{ai,aerospace,biopharma,future}.json
+  milestones.json
 ```
 
-## 数据文件（`web/public/data/`）
+### 每日更新（V0 手动）
 
-- `g2-hub.json` — 总览
-- `ai.json` — 人工智能（重点维护）
-- `seed.json` + `rockets.json` — 航空航天
-- `biopharma.json` — 生物医药
-- `future.json` — 十五五产业
+1. 新建 `daily/YYYY-MM-DD.json`（可参考 `prompts/daily-l1.md`）
+2. 把日期写入 `daily/index.json` 的 `dates` 与 `latest`
+3. 提交 `main` → Pages 自动部署
 
-计划 **每周一** 巡检更新（见 `.github/workflows/weekly-data-check.yml`）。
+### V1 目标
 
-## 技术栈
+GitHub Actions 每日 07:00（北京）自动生成 L1 JSON（见 PRD §7）。
 
-Vite · React · TypeScript · Tailwind · Recharts · Framer Motion
+## 本地
+
+```bash
+cd web && npm install && npm run dev
+```
+
+## 开放问题默认
+
+| 项 | 默认 |
+|----|------|
+| 站名 | 双轨 |
+| 受众 | 可公开、措辞中立 |
+| 托管 | GitHub Pages（可迁 Cloudflare） |
+| 审核 | V0 手动 |
+| 未来产业 | 机器人 / 量子 / 聚变 |

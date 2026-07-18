@@ -1,0 +1,47 @@
+{
+  "domain": "ai",
+  "updatedAt": "2026-07-18",
+  "cadence": "monthly",
+  "metrics": [
+    {
+      "id": "frontier",
+      "label": "旗舰闭源心智",
+      "unit": "定性",
+      "cn": { "value": 72, "display": "追赶中 · 开源亮眼" },
+      "us": { "value": 95, "display": "GPT/Claude/Gemini" },
+      "note": "相对指数 0-100，仅供对照，非官方排名"
+    },
+    {
+      "id": "open_source",
+      "label": "开源生态声量",
+      "unit": "定性",
+      "cn": { "value": 88, "display": "Qwen/DeepSeek 等" },
+      "us": { "value": 90, "display": "Llama 定盘" },
+      "note": "中美互有千秋"
+    },
+    {
+      "id": "compute",
+      "label": "先进训练算力可及性",
+      "unit": "定性",
+      "cn": { "value": 55, "display": "受限 · 效率路线" },
+      "us": { "value": 92, "display": "高端集群充裕" },
+      "note": "受出口管制影响显著"
+    },
+    {
+      "id": "app",
+      "label": "应用与场景落地",
+      "unit": "定性",
+      "cn": { "value": 85, "display": "超级 App / 政企" },
+      "us": { "value": 88, "display": "SaaS / 开发者" },
+      "note": "路径不同"
+    },
+    {
+      "id": "agent",
+      "label": "Agent 产品化进度",
+      "unit": "定性",
+      "cn": { "value": 70, "display": "快速试点" },
+      "us": { "value": 82, "display": "企业工作流嵌入" },
+      "note": "2025–26 主赛道"
+    }
+  ]
+}
