@@ -1,0 +1,460 @@
+{
+  "schemaVersion": 2,
+  "updatedAt": "2026-07-18",
+  "dataAsOf": "2026-07-16",
+  "disclaimer": "本站为科普可视化。发射与着陆数据主要依据 Wikipedia Falcon 列表、SpaceXNow、SpaceNews 及 Jonathan McDowell 星链统计；中国发射与星座数据来自公开报道，存在口径差异（轨道尝试 vs 成功、国家 vs 公司）。规划目标≠承诺，不构成投资或政策建议。",
+  "meta": {
+    "title": "航天对照台",
+    "titleEn": "Space Race Observatory",
+    "tagline": "遥测中美航天：发射 · 回收 · 星座 — 过去 · 现在 · 未来"
+  },
+  "sources": [
+    {
+      "id": "wiki-f9",
+      "label": "Wikipedia — Falcon 9 / Heavy launches（截至 2026-07-16）",
+      "url": "https://en.wikipedia.org/wiki/List_of_Falcon_9_and_Falcon_Heavy_launches"
+    },
+    {
+      "id": "sxnow",
+      "label": "SpaceXNow Statistics",
+      "url": "https://spacexnow.com/stats"
+    },
+    {
+      "id": "jm-starlink",
+      "label": "Jonathan McDowell — Starlink statistics",
+      "url": "https://planet4589.org/space/con/star/stats.html"
+    },
+    {
+      "id": "sn-2025",
+      "label": "SpaceNews — 2025 global orbital launch record",
+      "url": "https://spacenews.com/spacex-china-drive-new-record-for-orbital-launches-in-2025/"
+    },
+    {
+      "id": "wiki-2025",
+      "label": "Wikipedia — 2025 in spaceflight",
+      "url": "https://en.wikipedia.org/wiki/2025_in_spaceflight"
+    },
+    {
+      "id": "sn-qianfan",
+      "label": "SpaceNews — Qianfan reaches ~200 satellites",
+      "url": "https://spacenews.com/qianfan-constellation-deployment-hits-200-satellites-with-long-march-8-and-6a-launches/"
+    },
+    {
+      "id": "payload-2025",
+      "label": "Payload — 2025 orbital launch attempts by country",
+      "url": "https://payloadspace.com/2025-orbital-launch-attempts-by-country/"
+    }
+  ],
+  "yearlyLaunches": [
+    { "year": 2018, "us": 34, "china": 39, "spacex": 21, "note": "SpaceX=Falcon 家族年发射" },
+    { "year": 2019, "us": 27, "china": 34, "spacex": 13 },
+    { "year": 2020, "us": 44, "china": 39, "spacex": 26 },
+    { "year": 2021, "us": 51, "china": 55, "spacex": 31 },
+    { "year": 2022, "us": 87, "china": 64, "spacex": 61 },
+    { "year": 2023, "us": 116, "china": 67, "spacex": 96, "note": "SpaceXNow：2023 年 96 次成功 / 98 次尝试量级" },
+    { "year": 2024, "us": 154, "china": 68, "spacex": 136, "note": "SpaceXNow：2024 年 136 次" },
+    { "year": 2025, "us": 193, "china": 93, "spacex": 167, "note": "美 193（SpaceNews）；中国 93（Wiki）；SpaceX 167（SpaceXNow，含 Falcon/相关）" },
+    { "year": 2026, "us": 95, "china": 48, "spacex": 86, "partial": true, "note": "YTD：SpaceX 86/86（SpaceXNow，目标 145）；美/中 YTD 为按进度估算" }
+  ],
+  "kpis": {
+    "past": {
+      "label": "过去（累计 · 截至 2026-07 量级）",
+      "items": [
+        {
+          "id": "f9-cum",
+          "label": "Falcon 9 家族累计发射",
+          "value": 678,
+          "unit": "次",
+          "side": "spacex",
+          "note": "截至 2026-07-16 · 成功率约 99.56%",
+          "sourceIds": ["wiki-f9"]
+        },
+        {
+          "id": "cn-2018-2025",
+          "label": "中国轨道发射（2018–2025 合计）",
+          "value": 459,
+          "unit": "次",
+          "side": "china",
+          "note": "按年表加总 · 含失败尝试",
+          "sourceIds": ["wiki-2025", "sn-2025"]
+        },
+        {
+          "id": "booster-landings",
+          "label": "Falcon 一级着陆成功",
+          "value": 638,
+          "unit": "次",
+          "side": "spacex",
+          "note": "638 / 651 次尝试 · 约 98%",
+          "sourceIds": ["wiki-f9"]
+        },
+        {
+          "id": "starlink-launched",
+          "label": "Starlink 累计发射入轨",
+          "value": 12552,
+          "unit": "星",
+          "side": "spacex",
+          "note": "J. McDowell · 2026-07-16",
+          "sourceIds": ["jm-starlink"]
+        },
+        {
+          "id": "sx-booster-reuses",
+          "label": "一级助推器复飞次数",
+          "value": 601,
+          "unit": "次",
+          "side": "spacex",
+          "note": "SpaceXNow · booster reuses",
+          "sourceIds": ["sxnow"]
+        },
+        {
+          "id": "global-share-25",
+          "label": "2025 美中全球发射占比",
+          "value": 88,
+          "unit": "%",
+          "side": "both",
+          "note": "全球约 324 次尝试 · SpaceNews",
+          "sourceIds": ["sn-2025"]
+        }
+      ]
+    },
+    "present": {
+      "label": "现在（2026 YTD · 截至约 7 月中）",
+      "items": [
+        {
+          "id": "sx-ytd",
+          "label": "SpaceX 2026 YTD 发射",
+          "value": 86,
+          "unit": "次",
+          "side": "spacex",
+          "note": "86/86 成功 · 目标 145 · SpaceXNow",
+          "sourceIds": ["sxnow"]
+        },
+        {
+          "id": "cn-ytd",
+          "label": "中国 2026 YTD 发射（估）",
+          "value": 48,
+          "unit": "次",
+          "side": "china",
+          "note": "年中估算，待年终官方校准",
+          "sourceIds": ["sn-2025"]
+        },
+        {
+          "id": "max-flights",
+          "label": "单箭最高飞行次数",
+          "value": 36,
+          "unit": "次",
+          "side": "spacex",
+          "note": "B1067 · Wiki / SpaceXNow",
+          "sourceIds": ["wiki-f9", "sxnow"]
+        },
+        {
+          "id": "f9-success",
+          "label": "Falcon 9 发射成功率",
+          "value": 99.55,
+          "unit": "%",
+          "side": "spacex",
+          "note": "664/667 · SpaceXNow",
+          "sourceIds": ["sxnow"]
+        },
+        {
+          "id": "starlink-orbit",
+          "label": "Starlink 在轨（工作星）",
+          "value": 10832,
+          "unit": "星",
+          "side": "spacex",
+          "note": "Total working · J. McDowell 2026-07-16",
+          "sourceIds": ["jm-starlink"]
+        },
+        {
+          "id": "cn-mega-orbit",
+          "label": "国网+千帆已部署量级",
+          "value": 368,
+          "unit": "星",
+          "side": "china",
+          "note": "千帆约 200 + 国网约 168（2026 仲夏报道）",
+          "sourceIds": ["sn-qianfan"]
+        }
+      ]
+    },
+    "future": {
+      "label": "未来（公开目标 / 报道规划）",
+      "items": [
+        {
+          "id": "sx-goal-2026",
+          "label": "SpaceX 2026 发射目标",
+          "value": 145,
+          "unit": "次",
+          "side": "spacex",
+          "note": "SpaceXNow launch goal 2026",
+          "planned": true,
+          "sourceIds": ["sxnow"]
+        },
+        {
+          "id": "starship-ops",
+          "label": "Starship 向运营过渡",
+          "value": 2026,
+          "unit": "年",
+          "side": "spacex",
+          "note": "试验飞行持续；运营时间表可能调整",
+          "planned": true,
+          "sourceIds": ["sn-2025"]
+        },
+        {
+          "id": "starlink-gen2",
+          "label": "Starlink 长期申请量级",
+          "value": 42000,
+          "unit": "星",
+          "side": "spacex",
+          "note": "二代/长期申请量级（约数）；一代满编早已被超越",
+          "planned": true,
+          "sourceIds": ["jm-starlink"]
+        },
+        {
+          "id": "guowang-plan",
+          "label": "国网星座规划规模",
+          "value": 13000,
+          "unit": "星",
+          "side": "china",
+          "note": "公开规划约 1.3 万星",
+          "planned": true,
+          "sourceIds": ["sn-qianfan"]
+        },
+        {
+          "id": "qianfan-plan",
+          "label": "千帆星座规划规模",
+          "value": 15000,
+          "unit": "星",
+          "side": "china",
+          "note": "公开规划约 1.5 万星",
+          "planned": true,
+          "sourceIds": ["sn-qianfan"]
+        },
+        {
+          "id": "cn-reuse-horizon",
+          "label": "中国可回收常态化窗口",
+          "value": 2030,
+          "unit": "年前",
+          "side": "china",
+          "note": "多机构路线图示意，非单一官方死线",
+          "planned": true,
+          "sourceIds": ["sn-2025"]
+        }
+      ]
+    }
+  },
+  "compare": {
+    "spacex": {
+      "id": "spacex",
+      "name": "SpaceX",
+      "subtitle": "美国商业航天 · 马斯克旗下",
+      "accent": "cyan",
+      "metrics": {
+        "past": [
+          { "key": "Falcon 家族累计", "value": "678 次（至 2026-07-16）" },
+          { "key": "年发射峰值", "value": "167 次（2025，SpaceXNow）" },
+          { "key": "一级着陆", "value": "638 / 651（约 98%）" },
+          { "key": "Starlink 累计入轨", "value": "12,552 星" }
+        ],
+        "present": [
+          { "key": "2026 YTD", "value": "86 次 · 100% 成功" },
+          { "key": "单箭最高飞行", "value": "36 次（B1067）" },
+          { "key": "Falcon 9 成功率", "value": "99.55%（664/667）" },
+          { "key": "Starlink 在轨工作", "value": "10,832 星" }
+        ],
+        "future": [
+          { "key": "2026 年目标", "value": "145 次（进行中 86）" },
+          { "key": "Starship", "value": "试验 → 运营过渡" },
+          { "key": "星座扩展", "value": "万星级已达成，继续扩容" },
+          { "key": "深空", "value": "月球物流 / 火星架构" }
+        ]
+      }
+    },
+    "china": {
+      "id": "china",
+      "name": "中国航天",
+      "subtitle": "国家队 + 商业航天双轨",
+      "accent": "amber",
+      "metrics": {
+        "past": [
+          { "key": "年发射峰值", "value": "93 次（2025）" },
+          { "key": "2018–2025 合计", "value": "约 459 次" },
+          { "key": "一级工业复用", "value": "验证与试验阶段" },
+          { "key": "导航星座", "value": "北斗三号全球服务" }
+        ],
+        "present": [
+          { "key": "2026 YTD（估）", "value": "约 48 次" },
+          { "key": "空间站", "value": "中国空间站运营中" },
+          { "key": "千帆已部署", "value": "约 200 星（2026-06）" },
+          { "key": "国网已部署", "value": "约 168 星（2026 仲夏）" }
+        ],
+        "future": [
+          { "key": "国网规划", "value": "约 13,000 星" },
+          { "key": "千帆规划", "value": "约 15,000 星" },
+          { "key": "可回收", "value": "推进常态化复用" },
+          { "key": "探月 / 载人", "value": "嫦娥 · 载人登月路线" }
+        ]
+      }
+    }
+  },
+  "reuse": {
+    "spacex": {
+      "title": "SpaceX 回收与复用",
+      "bullets": [
+        "Falcon 一级着陆 638 次成功 / 651 次尝试（约 98%，Wiki 至 2026-07-16）",
+        "助推器复飞累计 601 次；单箭 B1067 达 36 次飞行纪录",
+        "Block 5 着陆成功率约 99%；海上无人机船与陆地场并行",
+        "Starship 追求完全可复用（推进器 + 飞船），仍在试验迭代"
+      ],
+      "stats": [
+        { "label": "着陆成功", "value": "638" },
+        { "label": "单箭最高", "value": "36" },
+        { "label": "复飞累计", "value": "601" }
+      ]
+    },
+    "china": {
+      "title": "中国可回收进展",
+      "bullets": [
+        "长征系列主力仍以消耗型入轨为主，保障高可靠任务",
+        "商业航天与部分国家项目推进垂直起降、海上回收等试验",
+        "尚未形成 SpaceX 级「高频复用 + 单箭 30+ 飞」工业节奏",
+        "公开路线普遍指向本十年内提升可重复使用运载能力"
+      ],
+      "stats": [
+        { "label": "工业复用", "value": "验证中" },
+        { "label": "主力运载", "value": "消耗型" },
+        { "label": "商业试验", "value": "加速" }
+      ]
+    }
+  },
+  "constellations": [
+    {
+      "id": "starlink",
+      "name": "Starlink",
+      "country": "US",
+      "operator": "SpaceX",
+      "deployedApprox": 12552,
+      "activeApprox": 10832,
+      "plannedApprox": 42000,
+      "status": "大规模在轨运营",
+      "note": "J. McDowell 2026-07-16：累计发射 12,552；在轨工作 10,832。规划栏取二代/长期申请量级（约 4.2 万）作对照，非单一官方死线。"
+    },
+    {
+      "id": "qianfan",
+      "name": "千帆（G60）",
+      "country": "CN",
+      "operator": "上海垣信等",
+      "deployedApprox": 200,
+      "activeApprox": 200,
+      "plannedApprox": 15000,
+      "status": "组网建设中",
+      "note": "SpaceNews：2026-06 前后约 200 星在轨；规划约 1.5 万星。"
+    },
+    {
+      "id": "guowang",
+      "name": "国网（GW）",
+      "country": "CN",
+      "operator": "中国卫星网络集团等",
+      "deployedApprox": 168,
+      "activeApprox": 168,
+      "plannedApprox": 13000,
+      "status": "组网建设中",
+      "note": "2026 仲夏公开报道约 168 星量级；规划约 1.3 万星。透明度低于 Starlink 统计。"
+    },
+    {
+      "id": "beidou",
+      "name": "北斗三号",
+      "country": "CN",
+      "operator": "中国卫星导航系统",
+      "deployedApprox": 45,
+      "activeApprox": 45,
+      "plannedApprox": 45,
+      "status": "全球服务运行",
+      "note": "导航星座（非通信巨型星座），约 45 星全球组网运行。"
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2015-12",
+      "side": "US",
+      "title": "Falcon 9 首次轨道任务后陆地成功着陆",
+      "category": "reuse",
+      "description": "可复用一级进入实用阶段，开启发射经济学变革。"
+    },
+    {
+      "date": "2019-05",
+      "side": "US",
+      "title": "Starlink 大规模部署启动",
+      "category": "constellation",
+      "description": "低轨宽带星座竞赛正式拉开。"
+    },
+    {
+      "date": "2020-06",
+      "side": "CN",
+      "title": "北斗三号全球组网完成",
+      "category": "constellation",
+      "description": "中国自主全球卫星导航系统全面建成。"
+    },
+    {
+      "date": "2021-04",
+      "side": "CN",
+      "title": "天和核心舱发射 · 空间站建造启动",
+      "category": "launch",
+      "description": "中国载人航天进入空间站时代。"
+    },
+    {
+      "date": "2024-08",
+      "side": "CN",
+      "title": "千帆首批组网星发射",
+      "category": "constellation",
+      "description": "中国低轨通信巨型星座进入实质性部署。"
+    },
+    {
+      "date": "2024-12",
+      "side": "CN",
+      "title": "国网星座部署加速",
+      "category": "constellation",
+      "description": "国家低轨星座与商业千帆并行推进。"
+    },
+    {
+      "date": "2025-12",
+      "side": "US",
+      "title": "SpaceX 年发射约 165–167 次创新高",
+      "category": "launch",
+      "description": "单公司发射量超过世界其余大部分总和；Falcon 一级复用纪录持续刷新。"
+    },
+    {
+      "date": "2025-12",
+      "side": "CN",
+      "title": "中国年轨道发射约 93 次",
+      "category": "launch",
+      "description": "国家纪录级年份；美中合计约占全球发射约 88%。"
+    },
+    {
+      "date": "2026-06",
+      "side": "CN",
+      "title": "千帆在轨约 200 星",
+      "category": "constellation",
+      "description": "组网节奏加快，与国网共同迈向万星规划。"
+    },
+    {
+      "date": "2026-07",
+      "side": "US",
+      "title": "Starlink 在轨工作星突破 10,800",
+      "category": "constellation",
+      "description": "J. McDowell：工作星 10,832；累计发射 12,552。"
+    },
+    {
+      "date": "2026+",
+      "side": "BOTH",
+      "title": "可回收与万星星座并进",
+      "category": "policy",
+      "description": "SpaceX 推进 Starship 与星链扩容；中国推进复用验证与双巨型星座。"
+    }
+  ],
+  "usToggle": {
+    "label": "对照主体",
+    "options": [
+      { "id": "spacex", "label": "SpaceX vs 中国" },
+      { "id": "us", "label": "美国合计 vs 中国" }
+    ]
+  }
+}
