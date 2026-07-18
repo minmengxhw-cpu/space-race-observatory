@@ -42,13 +42,18 @@ jobs:
           d["focus"] = []
           d["items"] = []
           d["note"] = f"CI 骨架（自 {latest}）。请补全过去 24h 真实动态。"
+          d["editorNote"] = "empty scaffold — frontend will fall back to last filled day until items added"
           dst.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n")
           idx = json.loads(Path("$INDEX").read_text())
+          # Keep today in dates for archive, but do NOT point latest at empty scaffold.
+          # Frontend also auto-falls back when latest items are empty.
           idx["dates"] = [today] + [x for x in idx.get("dates", []) if x != today]
-          idx["latest"] = today
+          # leave idx["latest"] on last filled day (latest)
           Path("$INDEX").write_text(json.dumps(idx, ensure_ascii=False, indent=2) + "\n")
-          print("scaffolded", today)
+          print("scaffolded", today, "latest unchanged:", idx.get("latest"))
           PY
+      - name: Rebuild recent-30d aggregate
+        run: node scripts/build-recent.mjs
       - name: Commit if changed
         run: |
           git config user.name "dualtrack-bot"

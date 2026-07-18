@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react'
+import { Suspense, lazy, useEffect, useState } from 'react'
 import type { DailyItem, DomainId, MetricsFile, MilestoneItem, SiteConfig } from '../../lib/dualTypes'
 import { MetricBars } from '../../components/dual/MetricBars'
 import { Stars } from '../../components/dual/Stars'
-import { DomainProcess, type ProcessData } from '../../components/dual/DomainProcess'
+import type { ProcessData } from '../../components/dual/DomainProcess'
+
+const DomainProcess = lazy(() =>
+  import('../../components/dual/DomainProcess').then((m) => ({ default: m.DomainProcess })),
+)
 
 const TITLE_BG: Record<string, string> = {
   ai: 'bg-violet-500 text-white',
@@ -149,7 +153,11 @@ export function DomainPage({
               A 阶段路线 · B 关键维度 · C 对照曲线
             </p>
             {process ? (
-              <DomainProcess data={process} />
+              <Suspense
+                fallback={<p className="text-base text-slate-500">过程组件加载中…</p>}
+              >
+                <DomainProcess data={process} />
+              </Suspense>
             ) : (
               <p className="text-base text-slate-500">过程数据加载中…</p>
             )}

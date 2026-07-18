@@ -5,7 +5,7 @@ const MODELS = [
     gen: '第 1 代',
     years: '2006–09',
     tag: '入轨起点',
-    image: 'rockets/falcon1.jpg',
+    image: 'rockets/falcon1.webp',
     points: ['首次入轨', 'Merlin 验证', '商业航天起跑'],
   },
   {
@@ -14,7 +14,7 @@ const MODELS = [
     gen: '第 2 代',
     years: '2010–15',
     tag: '运力跃升',
-    image: 'rockets/falcon9-early.jpg',
+    image: 'rockets/falcon9-early.webp',
     points: ['九机并联', 'Dragon 货运', '着陆试验'],
   },
   {
@@ -23,7 +23,7 @@ const MODELS = [
     gen: '第 3 代主力',
     years: '2018–',
     tag: '工业复用',
-    image: 'rockets/falcon9-block5.jpg',
+    image: 'rockets/falcon9-block5.webp',
     points: ['30+ 飞/箭', '星链主力', '全球最高频'],
   },
   {
@@ -32,7 +32,7 @@ const MODELS = [
     gen: '重型',
     years: '2018–',
     tag: '三芯捆绑',
-    image: 'rockets/falcon-heavy.jpg',
+    image: 'rockets/falcon-heavy.webp',
     points: ['27 机 Merlin', '高能轨道', '侧助推器复用'],
   },
   {
@@ -41,7 +41,7 @@ const MODELS = [
     gen: '第 4 代',
     years: '试验中',
     tag: '完全可复用',
-    image: 'rockets/starship.jpg',
+    image: 'rockets/starship.webp',
     points: ['9 m 不锈钢', '甲烷 Raptor', '塔架捕获'],
   },
 ]

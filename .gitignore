@@ -6,3 +6,7 @@ dist/
 .env.*
 .vercel
 .wrangler
+
+# Local morning-run logs (may contain paths / chat ids)
+scripts/logs/
+*.log

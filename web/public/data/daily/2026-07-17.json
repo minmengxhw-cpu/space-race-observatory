@@ -25,17 +25,6 @@
       "tag": "大模型"
     },
     {
-      "id": "us-ai-01",
-      "country": "US",
-      "domain": "ai",
-      "title": "Fable成中方对标靶心",
-      "fact": "媒体报道Kimi K3综合水平接近Anthropic前沿模型Fable；美方闭源实验室仍以企业API与安全对齐产品为主轴。",
-      "why": "说明中美竞争已进入「点名对标闭源前沿」阶段。",
-      "source": "https://www.zaobao.com.sg/news/china/story20260717-9379062",
-      "stars": 2,
-      "tag": "闭源前沿"
-    },
-    {
       "id": "us-aero-01",
       "country": "US",
       "domain": "aerospace",
@@ -45,62 +34,8 @@
       "source": "https://spaceflightnow.com/2026/07/13/live-coverage-spacex-to-launch-a-flight-proven-falcon-booster-for-600th-time/",
       "stars": 2,
       "tag": "运载"
-    },
-    {
-      "id": "cn-aero-01",
-      "country": "CN",
-      "domain": "aerospace",
-      "title": "星座组网与国家队并行",
-      "fact": "中国低轨星座（国网/千帆）与长征系列发射继续按公开计划推进；载人空间站运营常态化。",
-      "why": "与美商业班车对照：一边爬坡组网，一边高可靠国家任务。",
-      "source": "https://spacenews.com/",
-      "stars": 1,
-      "tag": "航天"
-    },
-    {
-      "id": "cn-bio-01",
-      "country": "CN",
-      "domain": "biopharma",
-      "title": "创新药BD出海叙事持续",
-      "fact": "中国创新药对外授权/合作开发仍是产业主叙事之一。",
-      "why": "效率资产变现路径清晰，源头创新仍在爬坡。",
-      "source": "https://www.nmpa.gov.cn",
-      "stars": 1,
-      "tag": "医药"
-    },
-    {
-      "id": "us-bio-01",
-      "country": "US",
-      "domain": "biopharma",
-      "title": "平台创新与FDA路径",
-      "fact": "美方平台型Biotech与FDA注册仍是全球金标准参照。",
-      "why": "支付与原研决定长期价值。",
-      "source": "https://www.fda.gov",
-      "stars": 1,
-      "tag": "医药"
-    },
-    {
-      "id": "cn-fut-01",
-      "country": "CN",
-      "domain": "future",
-      "title": "人形机器人试产讨论热",
-      "fact": "国内产业链推进工厂场景试点与零部件降本。",
-      "why": "场景制造是十五五相关长板候选。",
-      "source": "https://www.gov.cn",
-      "stars": 1,
-      "tag": "机器人"
-    },
-    {
-      "id": "us-fut-01",
-      "country": "US",
-      "domain": "future",
-      "title": "具身智能资本继续布局",
-      "fact": "美方AI+机器人叙事与大厂投入并行。",
-      "why": "算法路径与中方制造路径形成对照。",
-      "source": "https://www.whitehouse.gov",
-      "stars": 1,
-      "tag": "机器人"
     }
   ],
-  "note": "7月17日：WAIC开幕日 + Kimi K3全球报道高峰。"
+  "note": "7月17日：WAIC开幕日 + Kimi K3全球报道高峰。美方AI/医药/未来与中方航天当日无独立可核实大事，留白。",
+  "editorNote": "已删 us-ai-01 镜像凑对、cn-aero 宽泛趋势、以及 bio/future 官网首页凑数条。"
 }

@@ -1,9 +1,13 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-display: 'Orbitron', 'Noto Sans SC', system-ui, sans-serif;
-  --font-body: 'Noto Sans SC', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Latin titles/numbers: self-hosted Orbitron / JetBrains (public/fonts).
+     Chinese body: system stack only — no Google Fonts download in CN. */
+  --font-display: 'Orbitron', 'PingFang SC', 'HarmonyOS Sans SC', 'MiSans',
+    'Hiragino Sans GB', 'Microsoft YaHei', system-ui, sans-serif;
+  --font-body: 'PingFang SC', 'HarmonyOS Sans SC', 'MiSans', 'Hiragino Sans GB',
+    'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --color-void: #02060d;
   --color-space: #050b14;

@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5"
@@ -10,17 +12,30 @@
     <meta name="theme-color" content="#02060d" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="G2" />
     <meta
       name="description"
-      content="G2 · 中美前沿科技每日对照：人工智能、航空航天、生物医药、未来产业"
+      content="G2 · 中美前沿科技每日对照：人工智能、航空航天、生物医药、未来产业。过去24小时大事，同一坐标系，每天3分钟。"
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="G2" />
+    <meta property="og:title" content="G2 · 中美前沿科技每日对照" />
+    <meta
+      property="og:description"
+      content="过去24小时大事 · 同一坐标系 · 每天3分钟"
+    />
+    <meta property="og:image" content="https://minmengxhw-cpu.github.io/space-race-observatory/icons/og.png" />
+    <meta property="og:url" content="https://minmengxhw-cpu.github.io/space-race-observatory/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="G2 · 中美前沿科技每日对照" />
+    <meta
+      name="twitter:description"
+      content="过去24小时大事 · 同一坐标系 · 每天3分钟"
+    />
+    <meta name="twitter:image" content="https://minmengxhw-cpu.github.io/space-race-observatory/icons/og.png" />
     <title>G2 · 中美前沿科技每日对照</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Self-hosted Latin fonts only; Chinese uses system stack (no Google Fonts) -->
+    <link rel="stylesheet" href="/fonts/fonts.css" />
   </head>
   <body>
     <div id="root"></div>

@@ -23,13 +23,19 @@ export interface DailyItem {
   source: string
   stars: number
   tag?: string
+  /** Present on aggregate recent-30d items */
+  date?: string
+  pairId?: string
 }
 
 export interface DailyFile {
   date: string
   focus: string[]
   items: DailyItem[]
+  /** Shown to readers at bottom of home */
   note?: string
+  /** Editor-only scratch; never rendered */
+  editorNote?: string
 }
 
 export interface MetricRow {

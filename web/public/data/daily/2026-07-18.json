@@ -1,6 +1,6 @@
 {
   "date": "2026-07-18",
-  "focus": ["cn-ai-01", "cn-ai-02", "us-ai-01"],
+  "focus": ["cn-ai-01", "cn-ai-02"],
   "items": [
     {
       "id": "cn-ai-01",
@@ -25,28 +25,6 @@
       "tag": "大模型"
     },
     {
-      "id": "us-ai-01",
-      "country": "US",
-      "domain": "ai",
-      "title": "K3对标美方Fable前沿",
-      "fact": "多家媒体报道Kimi K3综合表现接近Anthropic前沿模型Fable；美方OpenAI/Anthropic/Google闭源旗舰与企业API仍是全球付费与开发者默认参照。",
-      "why": "中美对照的正确读法：中方用开源冲击「接近Fable」；美方仍握有闭源天花板与生态。非「关闭某模型」，而是前沿闭源名号成为中方对标靶。",
-      "source": "https://www.zaobao.com.sg/news/china/story20260717-9379062",
-      "stars": 3,
-      "tag": "闭源前沿"
-    },
-    {
-      "id": "us-ai-02",
-      "country": "US",
-      "domain": "ai",
-      "title": "美方企业Agent产品线加码",
-      "fact": "OpenAI、Anthropic、Google等继续把可调用工具的Agent/工作流嵌入作为企业产品主线（API、Copilot类能力持续迭代）。",
-      "why": "下半场评测从答题转向「能否完成多步任务」；与中方开源参数战形成路径分化。",
-      "source": "https://openai.com",
-      "stars": 2,
-      "tag": "智能体"
-    },
-    {
       "id": "us-aero-01",
       "country": "US",
       "domain": "aerospace",
@@ -67,51 +45,8 @@
       "source": "https://spacenews.com/qianfan-constellation-deployment-hits-200-satellites-with-long-march-8-and-6a-launches/",
       "stars": 2,
       "tag": "卫星星座"
-    },
-    {
-      "id": "cn-bio-01",
-      "country": "CN",
-      "domain": "biopharma",
-      "title": "创新药出海BD仍是主线",
-      "fact": "中国创新药License-out/合作开发仍是进入全球市场的主路径；公开市场持续跟踪大额授权与管线交易。",
-      "why": "临床效率已能对外议价；源头创新与全球销售网仍是对照短板。",
-      "source": "https://www.nmpa.gov.cn",
-      "stars": 1,
-      "tag": "创新药"
-    },
-    {
-      "id": "us-bio-01",
-      "country": "US",
-      "domain": "biopharma",
-      "title": "FDA与平台型Biotech锚定估值",
-      "fact": "美方FDA路径与ADC/细胞基因/代谢等平台型Biotech，仍构成全球注册与管线估值的重要锚定。",
-      "why": "医药对照要看first-in-class与支付体系，不只比入组速度。",
-      "source": "https://www.fda.gov",
-      "stars": 1,
-      "tag": "监管"
-    },
-    {
-      "id": "cn-fut-01",
-      "country": "CN",
-      "domain": "future",
-      "title": "人形机器人工厂场景试产",
-      "fact": "国内整机与零部件企业推进人形机器人小批量与工厂场景试点，供应链成本是公开讨论焦点。",
-      "why": "十五五语境下制造场景是中方长板候选；通用具身闭环仍早。",
-      "source": "https://www.gov.cn",
-      "stars": 1,
-      "tag": "人形机器人"
-    },
-    {
-      "id": "us-fut-01",
-      "country": "US",
-      "domain": "future",
-      "title": "AI+机器人资本叙事升温",
-      "fact": "美方大厂与创业公司并行推进具身智能与机器人大脑，算法与资本是主叙事。",
-      "why": "与中国「整机降本」路径分化明显。",
-      "source": "https://www.whitehouse.gov",
-      "stars": 1,
-      "tag": "具身智能"
     }
   ],
-  "note": "本页由公开检索整理（约过去24–72小时可核实事件）。AI焦点：WAIC开幕、Kimi K3发布、美方Fable闭源前沿被对标。说明：公开报道写的是Kimi K3接近Anthropic前沿模型「Fable」，并非「Claude关闭Fable5」；若有关机通告链接可再补。"
+  "note": "本页据公开检索整理（约过去24–72小时可核实事件）。今日主线：WAIC开幕、Kimi K3发布、SpaceX复用助推里程碑。生物医药/未来产业当日无独立大事，留白。",
+  "editorNote": "已删凑数条（官网首页趋势描述）与 us-ai-01「K3对标Fable」镜像复述。美方AI栏当日若有独立闭源/Agent事件再补；公开报道写的是Kimi K3接近Anthropic前沿模型「Fable」，并非「Claude关闭Fable5」。"
 }

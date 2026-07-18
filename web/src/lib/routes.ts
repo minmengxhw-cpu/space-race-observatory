@@ -1,29 +1,62 @@
-export type SectorId = 'hub' | 'ai' | 'aerospace' | 'biopharma' | 'future'
+import type { DomainId, ViewId } from './dualTypes'
 
-export const SECTORS: {
-  id: SectorId
-  label: string
-  short: string
-  accent: string
-}[] = [
-  { id: 'hub', label: '总览', short: '总览', accent: 'slate' },
-  { id: 'ai', label: '人工智能', short: 'AI', accent: 'violet' },
-  { id: 'aerospace', label: '航空航天', short: '航天', accent: 'cyan' },
-  { id: 'biopharma', label: '生物医药', short: '医药', accent: 'emerald' },
-  { id: 'future', label: '十五五产业', short: '十五五', accent: 'amber' },
-]
+const DOMAINS: DomainId[] = ['ai', 'aerospace', 'biopharma', 'future']
 
-export function parseHash(): SectorId {
-  const h = (typeof window !== 'undefined' ? window.location.hash : '').replace(/^#\/?/, '')
-  const id = (h.split('/')[0] || 'hub') as SectorId
-  if (SECTORS.some((s) => s.id === id)) return id
-  // legacy anchors from aerospace-only site
-  if (['overview', 'rockets', 'roadmap', 'launch', 'timeline', 'reuse', 'constellation'].includes(id)) {
-    return 'aerospace'
-  }
-  return 'hub'
+export interface AppRoute {
+  view: ViewId
+  date?: string
+  domainId?: DomainId
 }
 
-export function setSectorHash(id: SectorId) {
-  window.location.hash = id === 'hub' ? '#/' : `#/${id}`
+const DATE_RE = /^\d{4}-\d{2}-\d{2}$/
+
+function isDomain(id: string): id is DomainId {
+  return (DOMAINS as string[]).includes(id)
+}
+
+/**
+ * Hash routes:
+ *   #/                     home (latest date)
+ *   #/d/2026-07-18         home at date
+ *   #/domain/ai            domain page
+ *   #/archive              archive
+ *   #/deep-aerospace       aerospace deep dive
+ *
+ * Legacy: #/ai #/aerospace … → domain; old aerospace anchors → deep-aerospace
+ */
+export function parseHash(hash = typeof window !== 'undefined' ? window.location.hash : ''): AppRoute {
+  const raw = hash.replace(/^#\/?/, '').replace(/\/+$/, '')
+  if (!raw) return { view: 'home' }
+
+  const parts = raw.split('/').filter(Boolean)
+  const [a, b] = parts
+
+  if (a === 'archive') return { view: 'archive' }
+  if (a === 'deep-aerospace') return { view: 'deep-aerospace' }
+  if (a === 'd' && b && DATE_RE.test(b)) return { view: 'home', date: b }
+  if (a === 'domain' && b && isDomain(b)) return { view: 'domain', domainId: b }
+  if (isDomain(a)) return { view: 'domain', domainId: a }
+  if (a === 'hub') return { view: 'home' }
+  if (['overview', 'rockets', 'roadmap', 'launch', 'timeline', 'reuse', 'constellation'].includes(a)) {
+    return { view: 'deep-aerospace' }
+  }
+
+  return { view: 'home' }
+}
+
+export function buildHash(route: AppRoute, latestDate?: string): string {
+  switch (route.view) {
+    case 'archive':
+      return '#/archive'
+    case 'deep-aerospace':
+      return '#/deep-aerospace'
+    case 'domain':
+      return route.domainId ? `#/domain/${route.domainId}` : '#/'
+    case 'home':
+    default: {
+      if (route.date && latestDate && route.date !== latestDate) return `#/d/${route.date}`
+      if (route.date && !latestDate) return `#/d/${route.date}`
+      return '#/'
+    }
+  }
 }

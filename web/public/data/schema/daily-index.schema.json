@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://g2.local/schema/daily-index.schema.json",
+  "title": "G2 Daily Index",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["dates", "latest"],
+  "properties": {
+    "dates": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+      "minItems": 1
+    },
+    "latest": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    }
+  }
+}

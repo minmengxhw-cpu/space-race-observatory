@@ -16,8 +16,12 @@ echo "==== $(date '+%Y-%m-%d %H:%M:%S %z') morning-update ===="
 
 TODAY=$(date +%Y-%m-%d)
 SITE_URL="https://minmengxhw-cpu.github.io/space-race-observatory/"
-USER_OPEN_ID="${G2_FEISHU_OPEN_ID:-${DUALTRACK_FEISHU_OPEN_ID:-ou_56c8fecf85c044d81c98b518eac470c0}}"
+USER_OPEN_ID="${G2_FEISHU_OPEN_ID:-${DUALTRACK_FEISHU_OPEN_ID:-}}"
 LARK="${LARK_CLI:-$HOME/.local/bin/lark-cli}"
+
+if [[ -z "$USER_OPEN_ID" ]]; then
+  echo "WARN: G2_FEISHU_OPEN_ID (or DUALTRACK_FEISHU_OPEN_ID) not set — skip Feishu at end"
+fi
 
 # 1) 若无今日 JSON：从最近一天复制骨架，并标为待人工补全
 if [[ ! -f "$DATA/$TODAY.json" ]]; then
@@ -57,7 +61,7 @@ PY
 EOF
   fi
 
-  # 更新 index.json
+  # 更新 index.json：今日进入 dates，但不把 latest 指到空骨架（避免读者看到空白今日）
   python3 - <<PY
 import json
 from pathlib import Path
@@ -65,10 +69,19 @@ p = Path("$INDEX")
 idx = json.loads(p.read_text()) if p.exists() else {"dates": [], "latest": ""}
 if "$TODAY" not in idx["dates"]:
     idx["dates"] = ["$TODAY"] + [d for d in idx.get("dates", []) if d != "$TODAY"]
-idx["latest"] = "$TODAY"
+# only advance latest when today's file already has items (manual fill path)
+today_path = Path("$DATA/$TODAY.json")
+try:
+    items = json.loads(today_path.read_text()).get("items") or []
+except Exception:
+    items = []
+if items:
+    idx["latest"] = "$TODAY"
 p.write_text(json.dumps(idx, ensure_ascii=False, indent=2) + "\n")
 print("index updated", idx)
 PY
+  # rebuild aggregate for domain pages
+  node "$ROOT/scripts/build-recent.mjs" || true
 else
   echo "Daily file exists: $DATA/$TODAY.json"
 fi
@@ -103,7 +116,13 @@ if [[ "${DUALTRACK_AUTO_COMMIT:-0}" == "1" ]]; then
   fi
 fi
 
-# 4) 飞书通知
+# 4) 飞书通知（open_id 仅来自环境变量，禁止写死在仓库）
+if [[ -z "$USER_OPEN_ID" ]]; then
+  echo "Skip Feishu: no open_id in env"
+  echo "==== done ===="
+  exit 0
+fi
+
 if [[ ! -x "$LARK" ]]; then
   echo "lark-cli not found at $LARK"
   exit 0

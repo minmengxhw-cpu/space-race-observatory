@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node ../scripts/build-recent.mjs",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate-data": "node ../scripts/validate-data.mjs",
+    "build-recent": "node ../scripts/build-recent.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",
@@ -21,6 +24,8 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
     "oxlint": "^1.71.0",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",

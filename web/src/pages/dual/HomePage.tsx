@@ -14,6 +14,8 @@ export function HomePage({
   onNext,
   onArchive,
   onDomain,
+  updatingToday = false,
+  scaffoldDate = null,
 }: {
   site: SiteConfig
   daily: DailyFile
@@ -24,6 +26,9 @@ export function HomePage({
   onNext: () => void
   onArchive: () => void
   onDomain: (d: DomainId) => void
+  /** Latest calendar day is empty scaffold — showing last filled day */
+  updatingToday?: boolean
+  scaffoldDate?: string | null
 }) {
   const focusIds = new Set(daily.focus)
   // 领域顺序：AI 优先，再航天/医药/未来
@@ -70,6 +75,22 @@ export function HomePage({
           onNext={onNext}
           onOpenArchive={onArchive}
         />
+
+        {updatingToday && (
+          <div
+            className="mb-4 rounded-2xl border border-amber-400/35 bg-amber-400/10 px-4 py-3 flex items-start gap-3"
+            role="status"
+          >
+            <span className="shrink-0 mt-0.5 rounded-lg bg-amber-400 text-void text-xs font-bold px-2 py-1">
+              今日更新中
+            </span>
+            <p className="text-sm sm:text-base text-amber-100/90 leading-snug font-medium">
+              {scaffoldDate && scaffoldDate !== daily.date
+                ? `${scaffoldDate} 内容补全中，暂展示最近有内容的一天（${daily.date}）。`
+                : '今日条目尚未补全，展示可用内容。宁可留白，不硬凑。'}
+            </p>
+          </div>
+        )}
 
         {/* ========== 前：今日焦点 / 分领域大事 ========== */}
         <section className="mt-2">
