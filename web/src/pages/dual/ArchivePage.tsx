@@ -17,29 +17,27 @@ export function ArchivePage({
   }
 
   return (
-    <div className="relative min-h-[100svh]">
-      <div className="pointer-events-none fixed inset-0">
-        <div className="absolute top-20 right-0 w-[300px] h-[300px] bg-violet-500/10 blur-[90px] rounded-full" />
-      </div>
-      <div className="relative z-10 max-w-lg mx-auto px-3.5 pb-12 sm:max-w-2xl">
+    <div className="relative min-h-[100svh] bg-void">
+      <div className="pointer-events-none fixed inset-0 starfield opacity-40" />
+      <div className="relative z-10 max-w-lg mx-auto px-3 pb-14 sm:max-w-2xl">
         <button
           type="button"
           onClick={onBack}
-          className="mt-4 text-sm font-semibold text-cyan-300 min-h-[44px] px-3 rounded-lg border border-cyan-400/20 bg-cyan-500/5"
+          className="mt-4 min-h-[48px] px-4 rounded-2xl bg-slate-200 text-void text-base font-bold"
         >
           ← 返回
         </button>
-        <h1 className="mt-4 font-display text-3xl sm:text-4xl font-bold text-white text-glow-cyan">
-          归档
-        </h1>
-        <p className="mt-2 text-sm sm:text-base text-slate-300">点日期回看当日对照 · 全静态可截图</p>
+
+        <div className="mt-4 rounded-2xl bg-white text-void p-5 sm:p-6 shadow-xl">
+          <p className="text-sm font-bold opacity-50 tracking-widest uppercase">Archive</p>
+          <h1 className="mt-1 font-display text-4xl sm:text-5xl font-bold leading-none">归档</h1>
+          <p className="mt-2 text-base font-bold opacity-70">点日期回看当日展出</p>
+        </div>
 
         {[...byMonth.entries()].map(([month, ds]) => (
           <section key={month} className="mt-8">
-            <h2 className="font-mono-num text-base font-bold text-cyan-400 mb-3 tracking-wide">
-              {month}
-            </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+            <p className="font-mono-num text-2xl font-bold text-white mb-3">{month}</p>
+            <div className="grid grid-cols-2 gap-2.5">
               {ds.map((d) => {
                 const active = d === current
                 return (
@@ -47,16 +45,16 @@ export function ArchivePage({
                     key={d}
                     type="button"
                     onClick={() => onPick(d)}
-                    className={`rounded-2xl py-5 px-3 text-center min-h-[72px] border transition-all ${
+                    className={`rounded-2xl min-h-[88px] flex flex-col items-center justify-center ${
                       active
-                        ? 'bg-cyan-400 text-void border-cyan-300 shadow-[0_0_28px_rgba(34,211,238,0.35)]'
-                        : 'bg-gradient-to-b from-[#0c1829] to-[#070f1a] text-white border-slate-700/80 hover:border-cyan-400/40'
+                        ? 'bg-cyan-400 text-void'
+                        : 'bg-slate-200 text-void'
                     }`}
                   >
-                    <p className="font-mono-num text-lg font-bold">{d.slice(5)}</p>
-                    <p className={`text-[10px] mt-1 ${active ? 'opacity-70' : 'text-slate-500'}`}>
-                      {d.slice(0, 4)}
-                    </p>
+                    <span className="font-mono-num text-3xl font-bold leading-none">
+                      {d.slice(5)}
+                    </span>
+                    <span className="text-xs font-bold opacity-50 mt-1">{d.slice(0, 4)}</span>
                   </button>
                 )
               })}
