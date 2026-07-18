@@ -1,0 +1,34 @@
+{
+  "domain": "ai",
+  "title": "人工智能 · 全程发展对照",
+  "subtitle": "参考航天页结构：路线阶段 → 对比要点 → 趋势曲线 → 里程碑",
+  "cnTitle": "中国 AI 路线",
+  "usTitle": "美国 AI 路线",
+  "cnSubtitle": "跟跑 → 百模 → 开源突围 → 国产算力适配",
+  "usSubtitle": "预训练缩放 → 产品生态 → Agent → 科学/具身",
+  "cnStages": [
+    { "phase": "01", "title": "跟跑大模型", "years": "2020–23", "items": ["百模大战", "中文语料与云上推理", "备案与合规框架"] },
+    { "phase": "02", "title": "开源突围", "years": "2024–26", "items": ["DeepSeek/Qwen 效率叙事", "Kimi K3 等参数/开源冲击", "性价比全球声量"] },
+    { "phase": "03", "title": "国产算力适配", "years": "进行中", "items": ["国产加速器软件栈", "混合精度与集群工程", "推理侧极致优化"] },
+    { "phase": "04", "title": "场景与标准", "years": "十五五", "items": ["行业大模型", "安全可控", "标准与出海"] }
+  ],
+  "usStages": [
+    { "phase": "01", "title": "预训练缩放", "years": "2018–23", "items": ["Transformer 规模化", "ChatGPT 时刻", "多模态起步"] },
+    { "phase": "02", "title": "产品与生态", "years": "2023–25", "items": ["API 战争", "企业 Copilot", "安全与监管"] },
+    { "phase": "03", "title": "Agent 化", "years": "2025–", "items": ["工具调用可靠化", "长程任务", "计算机使用"] },
+    { "phase": "04", "title": "科学与具身", "years": "远期", "items": ["科研加速", "机器人大脑", "能源约束"] }
+  ],
+  "compareChips": [
+    { "title": "旗舰能力", "left": "闭源 SOTA（GPT/Claude/Gemini/Fable）", "right": "开源逼近 + 效率叙事（K3 等）" },
+    { "title": "算力底座", "left": "高端 GPU 集群充裕", "right": "先进芯片受限 · 工程挖潜" },
+    { "title": "应用路径", "left": "全球 SaaS / 开发者付费", "right": "超级 App · 政企 · 制造场景" }
+  ],
+  "trend": [
+    { "year": "2020", "us": 70, "cn": 35, "label": "预训练起步" },
+    { "year": "2022", "us": 88, "cn": 48, "label": "ChatGPT" },
+    { "year": "2024", "us": 92, "cn": 72, "label": "开源追赶" },
+    { "year": "2025", "us": 94, "cn": 82, "label": "效率战" },
+    { "year": "2026", "us": 95, "cn": 86, "label": "WAIC·K3" }
+  ],
+  "trendNote": "相对综合指数（0–100），用于趋势对照，非官方排名。"
+}

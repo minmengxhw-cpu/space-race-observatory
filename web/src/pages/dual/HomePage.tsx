@@ -71,20 +71,22 @@ export function HomePage({
           onOpenArchive={onArchive}
         />
 
-        {/* ========== 主内容：当日分领域中美对照（最前） ========== */}
+        {/* ========== 前：今日焦点 / 分领域大事 ========== */}
         <section className="mt-2">
           <div className="flex items-center justify-between gap-2 mb-3">
             <h2 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold text-white">
-              今日分领域对照
+              今日焦点 · 分领域对照
             </h2>
             <span className="text-xs sm:text-sm font-mono-num text-slate-500 shrink-0">
               L1 动态
             </span>
           </div>
+          <p className="text-sm sm:text-base text-slate-400 mb-3">
+            过去约 24 小时大事放最前 · 点领域可进「全程发展过程 / 曲线 / 里程碑」
+          </p>
 
           <DomainChips domains={site.domains} value={filter} onChange={onFilter} sticky />
 
-          {/* 桌面双列 / 手机单列 */}
           <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-5">
             {domains.map((d) => {
               const items = daily.items.filter((i) => i.domain === d.id)
@@ -99,12 +101,48 @@ export function HomePage({
                   <button
                     type="button"
                     onClick={() => onDomain(d.id)}
-                    className="mt-2 w-full rounded-2xl min-h-[48px] sm:min-h-[52px] text-sm sm:text-base font-bold
+                    className="mt-2 w-full rounded-2xl min-h-[52px] text-sm sm:text-base font-bold
                       bg-white text-void active:scale-[0.99] transition-transform"
                   >
-                    {d.label} · 指标与里程碑 →
+                    {d.label} · 全程过程 / 曲线 / 里程碑 →
                   </button>
                 </div>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* ========== 后：入口到各领域「航天式」全程对照 ========== */}
+        <section className="mt-12 border-t border-slate-800 pt-8">
+          <h2 className="font-display text-xl sm:text-2xl font-bold text-white mb-2">
+            全程发展过程（放后面）
+          </h2>
+          <p className="text-sm sm:text-base text-slate-400 mb-4">
+            参考最早航空航天对照：中美阶段路线、对比色块、趋势曲线、里程碑时间线
+          </p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
+            {site.domains.map((d) => {
+              const bg =
+                d.id === 'ai'
+                  ? 'bg-violet-500 text-white'
+                  : d.id === 'aerospace'
+                    ? 'bg-cyan-400 text-void'
+                    : d.id === 'biopharma'
+                      ? 'bg-emerald-400 text-void'
+                      : 'bg-amber-400 text-void'
+              return (
+                <button
+                  key={d.id}
+                  type="button"
+                  onClick={() => onDomain(d.id)}
+                  className={`${bg} rounded-2xl p-4 sm:p-5 min-h-[100px] text-left shadow-lg font-bold active:scale-[0.98] transition-transform`}
+                >
+                  <p className="text-xs opacity-70 tracking-widest uppercase">PROCESS</p>
+                  <p className="mt-1 text-lg sm:text-xl font-display font-bold leading-tight">
+                    {d.label}
+                  </p>
+                  <p className="mt-2 text-xs sm:text-sm opacity-80">路线 · 曲线 · 节点 →</p>
+                </button>
               )
             })}
           </div>
@@ -116,14 +154,13 @@ export function HomePage({
           </p>
         )}
 
-        {/* 页脚靠后 */}
-        <footer className="mt-12 space-y-3 border-t border-slate-800 pt-8">
+        <footer className="mt-10 space-y-3 border-t border-slate-800 pt-8">
           <div className="rounded-2xl bg-slate-900 border border-slate-700 p-4 sm:p-5">
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-medium">
               {site.disclaimer}
             </p>
             <p className="mt-2 text-xs text-slate-500 font-mono-num">
-              数据计划：每天 06:00 更新 · 飞书通知
+              每天 06:00 更新 · 飞书通知 · 站名 G2
             </p>
           </div>
           <button

@@ -1,0 +1,34 @@
+{
+  "domain": "biopharma",
+  "title": "生物医药 · 全程发展对照",
+  "subtitle": "对齐航天页：阶段路线 → 对比色块 → 趋势 → 里程碑",
+  "cnTitle": "中国医药路线",
+  "usTitle": "美国医药路线",
+  "cnSubtitle": "仿创质量 → 创新政策窗口 → BD 出海 → 源头爬坡",
+  "usSubtitle": "平台定义病种 → 全球注册销售 → AI4S 制药",
+  "cnStages": [
+    { "phase": "01", "title": "仿创与一致性", "years": "2010s", "items": ["仿制药质量提升", "一致性评价", "成本优势"] },
+    { "phase": "02", "title": "创新政策窗口", "years": "2015+", "items": ["药审改革", "临床默示许可", "创新药浪潮"] },
+    { "phase": "03", "title": "BD 出海变现", "years": "2023–26", "items": ["License-out 大单", "差异化管线", "ADC 等热门赛道"] },
+    { "phase": "04", "title": "源头创新爬坡", "years": "进行中", "items": ["基础研究转化", "全球多中心", "first-in-class 突破"] }
+  ],
+  "usStages": [
+    { "phase": "01", "title": "平台定义病种", "years": "持续", "items": ["mRNA / 基因编辑 / ADC", "Biotech 生态", "NIH 源头"] },
+    { "phase": "02", "title": "全球注册销售", "years": "持续", "items": ["FDA/EMA 路径", "商保支付", "跨国网络"] },
+    { "phase": "03", "title": "重磅与代谢", "years": "2020s", "items": ["GLP-1 等市场重塑", "高价创新药"] },
+    { "phase": "04", "title": "AI4S 制药", "years": "远期", "items": ["靶点发现加速", "试验设计辅助"] }
+  ],
+  "compareChips": [
+    { "title": "原研", "left": "全球平台与 first-in-class 领先", "right": "效率跟进 · 源头爬坡中" },
+    { "title": "临床", "left": "金标准 · 成本高", "right": "入组快 · 成本相对低" },
+    { "title": "出海", "left": "全球销售网", "right": "License-out 为主路径" }
+  ],
+  "trend": [
+    { "year": "2018", "us": 90, "cn": 45, "label": "创新综合" },
+    { "year": "2020", "us": 91, "cn": 55, "label": "创新综合" },
+    { "year": "2022", "us": 92, "cn": 65, "label": "创新综合" },
+    { "year": "2024", "us": 93, "cn": 74, "label": "创新综合" },
+    { "year": "2026", "us": 94, "cn": 80, "label": "BD+管线" }
+  ],
+  "trendNote": "相对创新综合指数（0–100），趋势示意。"
+}
