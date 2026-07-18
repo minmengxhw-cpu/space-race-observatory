@@ -45,7 +45,7 @@ export function HomePage({
         <header className="pt-5 sm:pt-7 pb-4 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
           <div>
             <p className="font-display text-[11px] sm:text-xs tracking-[0.35em] text-cyan-400 font-bold uppercase">
-              Daily · Dual Track
+              Daily · G2
             </p>
             <h1 className="mt-1 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-none tracking-tight">
               {site.name}

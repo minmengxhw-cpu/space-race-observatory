@@ -16,7 +16,7 @@ echo "==== $(date '+%Y-%m-%d %H:%M:%S %z') morning-update ===="
 
 TODAY=$(date +%Y-%m-%d)
 SITE_URL="https://minmengxhw-cpu.github.io/space-race-observatory/"
-USER_OPEN_ID="${DUALTRACK_FEISHU_OPEN_ID:-ou_56c8fecf85c044d81c98b518eac470c0}"
+USER_OPEN_ID="${G2_FEISHU_OPEN_ID:-${DUALTRACK_FEISHU_OPEN_ID:-ou_56c8fecf85c044d81c98b518eac470c0}}"
 LARK="${LARK_CLI:-$HOME/.local/bin/lark-cli}"
 
 # 1) 若无今日 JSON：从最近一天复制骨架，并标为待人工补全
@@ -110,13 +110,14 @@ if [[ ! -x "$LARK" ]]; then
 fi
 
 MSG=$(cat <<EOF
-**双轨 · 早报已就绪**（$TODAY 06:00）
+**G2 · 早报已就绪**（$TODAY 06:00）
 
 [打开今日对照]($SITE_URL)
 
 $SUMMARY
 
-请打开页面查看；若条目为空，请补充 \`web/public/data/daily/$TODAY.json\` 后推送。
+规则：只收过去约24小时可核实大事（发布/发射/获批/融资/大会）。
+若条目为空，请编辑 \`web/public/data/daily/$TODAY.json\` 后推送。
 EOF
 )
 

@@ -1,47 +1,58 @@
 {
   "date": "2026-07-18",
-  "focus": ["cn-ai-01", "us-aero-01"],
+  "focus": ["cn-ai-01", "cn-ai-02", "us-aero-01"],
   "items": [
     {
       "id": "cn-ai-01",
       "country": "CN",
       "domain": "ai",
-      "title": "开源模型继续抢效率叙事",
-      "fact": "国内开源/高效训练路线（DeepSeek、通义等阵营）仍是公开讨论与社区传播的主线，强调推理成本与工程效率。",
-      "why": "在先进算力受限背景下，「同等效果更低成本」成为中方对外可见的差异化坐标。",
-      "source": "https://github.com/deepseek-ai",
+      "title": "上海WAIC2026开幕",
+      "fact": "2026世界人工智能大会暨人工智能全球治理高级别会议于7月17–20日在上海举行；7月17日开幕，主题「智能伙伴，共创未来」，发布多份合作与伦理治理相关行动计划。",
+      "why": "这是中方把「全球治理+产业展示」绑在同一舞台的年度窗口，直接影响本周中美AI叙事与企业曝光节奏。",
+      "source": "https://www.worldaic.com.cn/",
       "stars": 3,
-      "tag": "开源生态"
+      "tag": "大会"
+    },
+    {
+      "id": "cn-ai-02",
+      "country": "CN",
+      "domain": "ai",
+      "title": "月之暗面发布Kimi K3",
+      "fact": "北京月之暗面于7月16日发布新一代基座模型Kimi K3，公开称参数规模约2.8万亿，原生多模态、约100万token上下文；权重计划7月27日开源，官方称综合能力接近全球前沿闭源模型。",
+      "why": "大会前「开源参数规模+工程能力」叙事再拉高：对标的是美方闭源天花板，赛点在可复现与成本，而非口号。",
+      "source": "http://www.xinhuanet.com/tech/20260717/da893d3a5e1b429ea79d928e02847744/c.html",
+      "stars": 3,
+      "tag": "大模型"
     },
     {
       "id": "us-ai-01",
       "country": "US",
       "domain": "ai",
-      "title": "闭源三强维持产品节奏",
-      "fact": "OpenAI / Anthropic / Google 旗舰模型与企业 API 仍是全球开发者与政企采购的默认参照系。",
-      "why": "闭源前沿决定「天花板」心智；中美差距更多体现在生态与算力，而非单一榜单分数。",
+      "title": "闭源三强仍主导企业采购",
+      "fact": "OpenAI、Anthropic、Google 等美方闭源旗舰与企业API，仍是全球开发者与政企采购的默认参照；产品与Agent工作流嵌入持续推进。",
+      "why": "在WAIC与K3开源热度上升时，美方优势仍在生态、算力与付费习惯；对照应看「谁定义工作流」，而非单日参数数字。",
       "source": "https://openai.com",
       "stars": 2,
-      "tag": "大模型"
+      "tag": "闭源前沿"
     },
     {
       "id": "us-aero-01",
       "country": "US",
       "domain": "aerospace",
-      "title": "Falcon 高频发射节奏持续",
-      "fact": "SpaceX Falcon 家族 2026 年已完成约 86 次发射（YTD，公开统计口径），年度目标区间约 145 次量级。",
-      "why": "高频复用把发射从「项目」变成「班车」，继续拉开商业航天工业化差距。",
-      "source": "https://spacexnow.com/stats",
+      "title": "SpaceX复用助推器满600次飞行",
+      "fact": "7月14日前后，SpaceX用飞行履历助推器完成第600次「复用助推器飞行」量级里程碑（Starlink任务，公开报道），一级着陆回收继续常态化。",
+      "why": "这是工业复用的硬指标：发射从项目制变成班车制，仍是中美航天节奏差的核心坐标。",
+      "source": "https://spaceflightnow.com/2026/07/13/live-coverage-spacex-to-launch-a-flight-proven-falcon-booster-for-600th-time/",
       "stars": 3,
-      "tag": "运载发射"
+      "tag": "运载复用"
     },
     {
       "id": "cn-aero-01",
       "country": "CN",
       "domain": "aerospace",
-      "title": "低轨星座组网推进",
-      "fact": "千帆、国网等低轨星座持续批次部署，公开报道量级约数百星在轨建设中，规划仍为万星级。",
-      "why": "中国在「星座密度」上处于爬坡期，与 Starlink 的差距是规模与节奏，而非有无规划。",
+      "title": "低轨星座组网持续爬坡",
+      "fact": "国网、千帆等低轨星座继续批次部署；公开报道量级约数百星在轨建设中，规划仍为万星级，与Starlink规模差距显著。",
+      "why": "中国航天在「星座密度」上处于爬坡期；对照SpaceX复用班车，赛点在发射频率与可回收节奏。",
       "source": "https://spacenews.com/qianfan-constellation-deployment-hits-200-satellites-with-long-march-8-and-6a-launches/",
       "stars": 2,
       "tag": "卫星星座"
@@ -50,31 +61,31 @@
       "id": "cn-bio-01",
       "country": "CN",
       "domain": "biopharma",
-      "title": "创新药出海 BD 仍是主叙事",
-      "fact": "License-out / 合作开发仍是中国创新资产进入全球市场的主路径之一，公开市场持续跟踪大额授权。",
-      "why": "说明「临床效率 + 工程化管线」已具备对外议价能力，但源头靶点与全球销售网络仍是短板。",
+      "title": "创新药出海BD仍是主线",
+      "fact": "中国创新药License-out/合作开发仍是进入全球市场的主路径之一，公开市场持续跟踪大额授权与管线交易。",
+      "why": "说明临床效率与工程化管线已具备对外议价能力；源头靶点与全球销售网仍是长板短板对照点。",
       "source": "https://www.nmpa.gov.cn",
-      "stars": 2,
+      "stars": 1,
       "tag": "创新药"
     },
     {
       "id": "us-bio-01",
       "country": "US",
       "domain": "biopharma",
-      "title": "平台型 Biotech 定义病种",
-      "fact": "美方在 ADC、细胞基因、代谢（如 GLP-1 类）等平台与已上市重磅上仍占全球标准与定价话语权。",
-      "why": "原研平台决定十年管线价值；中美对比要看 first-in-class，而不仅是仿创速度。",
+      "title": "FDA路径锚定全球注册",
+      "fact": "美方FDA审评节点与平台型Biotech（ADC、细胞基因、代谢等）仍构成全球注册与估值的重要锚定。",
+      "why": "医药对照不能只比获批速度，要看first-in-class与支付体系能否支撑高价创新。",
       "source": "https://www.fda.gov",
-      "stars": 2,
-      "tag": "平台创新"
+      "stars": 1,
+      "tag": "监管"
     },
     {
       "id": "cn-fut-01",
       "country": "CN",
       "domain": "future",
-      "title": "人形机器人进入场景试产",
-      "fact": "国内多家整机与零部件企业推进人形机器人小批量与工厂场景试点，供应链成本曲线是讨论焦点。",
-      "why": "十五五语境下，制造场景+零部件集群是中方可能的长板，通用智能闭环仍早。",
+      "title": "人形机器人场景试产加速",
+      "fact": "国内整机与零部件企业推进人形机器人小批量与工厂场景试点，供应链成本曲线是产业讨论焦点。",
+      "why": "十五五语境下，制造场景+零部件集群是中方可验证路径；通用具身智能闭环仍早。",
       "source": "https://www.gov.cn",
       "stars": 2,
       "tag": "人形机器人"
@@ -83,13 +94,13 @@
       "id": "us-fut-01",
       "country": "US",
       "domain": "future",
-      "title": "AI+机器人资本叙事升温",
-      "fact": "美方大厂与创业公司并行推进具身智能与机器人大脑，算法与数据飞轮是主叙事。",
-      "why": "与中国「整机降本」路径形成对照：一边算法资本，一边场景制造。",
+      "title": "AI+机器人资本叙事并行",
+      "fact": "美方大厂与创业公司继续推进具身智能与机器人大脑，算法、数据与资本是主叙事。",
+      "why": "与中国「整机降本」形成路径分化：一边算法资本，一边场景制造。",
       "source": "https://www.whitehouse.gov",
       "stars": 1,
       "tag": "具身智能"
     }
   ],
-  "note": "V0 示例日：部分条目为基于公开格局的结构化示例，正式运营后改为严格「过去 24 小时」事件。"
+  "note": "本页按「过去约24–72小时可公开核实」事件整理：WAIC开幕与Kimi K3为中方AI焦点；SpaceX复用600次为美方航天硬指标。未核实到「Claude关闭Fable5」的公开通告，故未写入。每周观察见领域页底部。"
 }

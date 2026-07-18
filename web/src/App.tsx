@@ -123,11 +123,11 @@ export default function App() {
   }, [])
 
   const title = useMemo(() => {
-    if (!site) return '双轨'
-    if (view === 'home') return `${site.name} · ${date}`
-    if (view === 'archive') return `${site.name} · 归档`
-    if (view === 'deep-aerospace') return `${site.name} · 航天深潜`
-    return `${site.name} · ${site.domains.find((d) => d.id === domainId)?.label}`
+    if (!site) return 'G2'
+    if (view === 'home') return `G2 · ${date}`
+    if (view === 'archive') return `G2 · 归档`
+    if (view === 'deep-aerospace') return `G2 · 航天深潜`
+    return `G2 · ${site.domains.find((d) => d.id === domainId)?.label}`
   }, [site, view, date, domainId])
 
   useEffect(() => {
@@ -149,7 +149,7 @@ export default function App() {
     return (
       <div className="min-h-[100svh] bg-void flex flex-col items-center justify-center gap-4 starfield">
         <div className="w-11 h-11 border-2 border-cyan-400/25 border-t-cyan-400 rounded-full animate-spin" />
-        <p className="font-display text-sm tracking-[0.35em] text-cyan-300/80">DUAL TRACK</p>
+        <p className="font-display text-sm tracking-[0.35em] text-cyan-300/80">G2 LOADING</p>
       </div>
     )
   }
