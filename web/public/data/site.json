@@ -3,8 +3,10 @@
   "nameEn": "G2 Tech Daily",
   "tagline": "中美前沿科技 · 每日对照",
   "subtitle": "过去24小时大事 · 同一坐标系",
+  "brand": "G2",
   "updatedAt": "2026-07-18",
   "defaultDate": "2026-07-18",
+  "cacheBust": "2026-07-18-g2",
   "domains": [
     { "id": "ai", "label": "人工智能", "short": "AI", "color": "violet" },
     { "id": "aerospace", "label": "航空航天", "short": "航天", "color": "cyan" },

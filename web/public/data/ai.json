@@ -133,7 +133,7 @@
           "org": "智谱 AI",
           "country": "CN",
           "tier": "A",
-          "style": "开源+闭源双轨",
+          "style": "开源+闭源并行",
           "strengths": ["学术与产业结合", "Agent/工具向", "国内开发者生态"],
           "weaknesses": ["海外品牌声量有限"],
           "status": "国内头部"

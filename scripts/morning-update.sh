@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 双轨 · 每天 06:00 数据巡检 + 飞书通知
+# G2 · 每天 06:00 数据巡检 + 飞书通知
 # 由 LaunchAgent com.cheer.dualtrack.morning 调用
 
 set -euo pipefail

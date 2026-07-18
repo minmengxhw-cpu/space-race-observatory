@@ -1,6 +1,6 @@
-# 双轨 · 每日 L1 生成 Prompt（V1 自动化用）
+# G2 · 每日 L1 生成 Prompt（V1 自动化用）
 
-你是「双轨」站点的每日编辑。只根据**过去 24 小时**公开信息，生成 `data/daily/YYYY-MM-DD.json`。
+你是「G2」站点的每日编辑。只根据**过去 24 小时**公开信息，生成 `data/daily/YYYY-MM-DD.json`。
 
 ## 范围
 

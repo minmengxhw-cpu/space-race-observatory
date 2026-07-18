@@ -14,7 +14,7 @@ import { AerospacePage } from './pages/AerospacePage'
 import type { SeedData } from './types'
 
 /**
- * 双轨 · 中美前沿科技对照
+ * G2 · 中美前沿科技每日对照
  * V0：每日 L1 首页 + 领域 L2/L3 + 归档 + 航天深潜
  */
 export default function App() {

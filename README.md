@@ -43,7 +43,7 @@ cd web && npm install && npm run dev
 
 | 项 | 默认 |
 |----|------|
-| 站名 | 双轨 |
+| 站名 | **G2** |
 | 受众 | 可公开、措辞中立 |
 | 托管 | GitHub Pages（可迁 Cloudflare） |
 | 审核 | V0 手动 |

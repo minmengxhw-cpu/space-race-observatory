@@ -273,7 +273,7 @@
     "china": {
       "id": "china",
       "name": "中国航天",
-      "subtitle": "国家队 + 商业航天双轨",
+      "subtitle": "国家队 + 商业航天并行",
       "accent": "amber",
       "metrics": {
         "past": [

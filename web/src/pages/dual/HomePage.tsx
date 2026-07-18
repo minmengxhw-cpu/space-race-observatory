@@ -45,16 +45,16 @@ export function HomePage({
         <header className="pt-5 sm:pt-7 pb-4 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
           <div>
             <p className="font-display text-[11px] sm:text-xs tracking-[0.35em] text-cyan-400 font-bold uppercase">
-              Daily · G2
+              G2 · Daily Exhibit
             </p>
-            <h1 className="mt-1 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-none tracking-tight">
-              {site.name}
+            <h1 className="mt-1 font-display text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-none tracking-tight">
+              G2
             </h1>
             <p className="mt-2 text-lg sm:text-xl font-bold text-slate-100">
-              今日中美前沿对照
+              {site.tagline || '中美前沿科技 · 每日对照'}
             </p>
             <p className="mt-1 text-sm sm:text-base text-slate-400 font-medium">
-              最新消息与成果 · 同一坐标系 · 3 分钟
+              {site.subtitle || '过去24小时大事 · 同一坐标系'} · 3 分钟
             </p>
           </div>
           <div className="flex gap-2 shrink-0">
