@@ -299,7 +299,9 @@ export function RocketEvolution() {
         </motion.div>
       </AnimatePresence>
 
-      <p className="text-[10px] sm:text-[11px] text-slate-600 leading-relaxed px-0.5">{data.note}</p>
+      <p className="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed px-0.5">
+        {data.note} 图片来源详见站点 rockets/SOURCES.json（NASA / Wikimedia Commons）。
+      </p>
     </div>
   )
 }

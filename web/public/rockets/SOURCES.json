@@ -1,0 +1,77 @@
+{
+  "falcon1.jpg": {
+    "source": "commons",
+    "title": "File:Falcon 1 Flight 4 liftoff.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Falcon_1_Flight_4_liftoff.jpg",
+    "bytes": 56690
+  },
+  "falcon9-block5.jpg": {
+    "source": "nasa",
+    "title": "SpaceX Demo-2 Preflight",
+    "nasa_id": "NHQ202005210010",
+    "url": "http://images-assets.nasa.gov/image/NHQ202005210010/NHQ202005210010~large.jpg",
+    "bytes": 126480
+  },
+  "falcon9-early.jpg": {
+    "source": "nasa",
+    "title": "SpaceX CRS-20 Liftoff",
+    "nasa_id": "KSC-20200306-PH-AWG05_0010",
+    "url": "http://images-assets.nasa.gov/image/KSC-20200306-PH-AWG05_0010/KSC-20200306-PH-AWG05_0010~large.jpg",
+    "bytes": 213801
+  },
+  "falcon-heavy.jpg": {
+    "source": "nasa",
+    "title": "SpaceX Falcon Heavy STP-2 Liftoff",
+    "nasa_id": "KSC-20190625-PH_CSH01_0010",
+    "url": "http://images-assets.nasa.gov/image/KSC-20190625-PH_CSH01_0010/KSC-20190625-PH_CSH01_0010~large.jpg",
+    "bytes": 137263
+  },
+  "falcon9-landing.jpg": {
+    "source": "commons",
+    "title": "File:Falcon 9 first stage landing on Droneship.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Falcon_9_first_stage_landing_on_Droneship.jpg/1280px-Falcon_9_first_stage_landing_on_Droneship.jpg",
+    "bytes": 277097
+  },
+  "starship.jpg": {
+    "source": "nasa",
+    "title": "The launch of the SpaceX Starship 6 rocket seen from the space station",
+    "nasa_id": "iss072e220043",
+    "url": "http://images-assets.nasa.gov/image/iss072e220043/iss072e220043~large.jpg",
+    "bytes": 222705
+  },
+  "cz2f.jpg": {
+    "source": "commons",
+    "title": "File:Shenzhou 22 CZ-2F Y22 launch 13.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Shenzhou_22_CZ-2F_Y22_launch_13.png",
+    "bytes": 58730
+  },
+  "cz3b.jpg": {
+    "source": "commons",
+    "title": "File:The Launch of Long March 3B Rocket.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/The_Launch_of_Long_March_3B_Rocket.jpg",
+    "bytes": 205210
+  },
+  "cz5.jpg": {
+    "source": "commons",
+    "title": "File:Shijian-20 launch.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/Shijian-20_launch.jpg",
+    "bytes": 52832
+  },
+  "cz7.jpg": {
+    "source": "commons",
+    "title": "File:Long March 7 Y11 Tianzhou 10 Launch 08.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Long_March_7_Y11_Tianzhou_10_Launch_08.png/1280px-Long_March_7_Y11_Tianzhou_10_Launch_08.png",
+    "bytes": 586942
+  },
+  "cz8.jpg": {
+    "source": "commons",
+    "title": "File:Tianjin Launch Vehicle Base Long March 8 03.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Tianjin_Launch_Vehicle_Base_Long_March_8_03.png/1280px-Tianjin_Launch_Vehicle_Base_Long_March_8_03.png",
+    "bytes": 981816
+  },
+  "cz9.jpg": {
+    "source": "commons",
+    "title": "Long March 5 class launch context (CZ-9 has not flown; placeholder real photo of Chinese heavy-lift launch)",
+    "note": "长征九号尚未首飞，暂用中国重型火箭发射实拍作场景参照"
+  }
+}
