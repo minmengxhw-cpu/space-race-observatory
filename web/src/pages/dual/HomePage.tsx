@@ -73,16 +73,19 @@ export function HomePage({
 
         {/* ========== 前：今日焦点 / 分领域大事 ========== */}
         <section className="mt-2">
-          <div className="flex items-center justify-between gap-2 mb-3">
+          <div className="flex items-center gap-2.5 mb-3">
+            <span className="bg-cyan-400 text-void text-xs sm:text-sm font-bold px-2.5 py-1 rounded-lg">
+              前
+            </span>
             <h2 className="font-display text-xl sm:text-2xl lg:text-3xl font-bold text-white">
               今日焦点 · 分领域对照
             </h2>
-            <span className="text-xs sm:text-sm font-mono-num text-slate-500 shrink-0">
-              L1 动态
+            <span className="text-xs sm:text-sm font-mono-num text-slate-500 shrink-0 ml-auto">
+              L1
             </span>
           </div>
           <p className="text-sm sm:text-base text-slate-400 mb-3">
-            过去约 24 小时大事放最前 · 点领域可进「全程发展过程 / 曲线 / 里程碑」
+            过去约 24 小时大事放最前 · 点领域进入统一过程模板（对标最早航空航天对照）
           </p>
 
           <DomainChips domains={site.domains} value={filter} onChange={onFilter} sticky />
@@ -113,12 +116,18 @@ export function HomePage({
         </section>
 
         {/* ========== 后：入口到各领域「航天式」全程对照 ========== */}
-        <section className="mt-12 border-t border-slate-800 pt-8">
-          <h2 className="font-display text-xl sm:text-2xl font-bold text-white mb-2">
-            全程发展过程（放后面）
-          </h2>
-          <p className="text-sm sm:text-base text-slate-400 mb-4">
-            参考最早航空航天对照：中美阶段路线、对比色块、趋势曲线、里程碑时间线
+        <section className="mt-12 border-t-2 border-slate-700 pt-8">
+          <div className="flex items-center gap-2.5 mb-2">
+            <span className="bg-amber-400 text-void text-xs sm:text-sm font-bold px-2.5 py-1 rounded-lg">
+              后
+            </span>
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-white">
+              全程发展过程
+            </h2>
+          </div>
+          <p className="text-sm sm:text-base text-slate-400 mb-4 leading-relaxed">
+            里程碑、曲线图、对比图放后面。每个板块同一过程：中美阶段路线 → 对比色块 →
+            趋势曲线 → 硬指标 → 时间线（最早航空航天对照模板）
           </p>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
             {site.domains.map((d) => {
