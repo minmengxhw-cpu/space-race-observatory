@@ -13,6 +13,7 @@ import { SourcesFooter } from './components/SourcesFooter'
 import { Ticker } from './components/Ticker'
 import { MobileNav } from './components/MobileNav'
 import { MobileSummary } from './components/MobileSummary'
+import { RocketEvolution } from './components/RocketEvolution'
 
 export default function App() {
   const [data, setData] = useState<SeedData | null>(null)
@@ -135,6 +136,7 @@ export default function App() {
             <nav className="hidden md:flex items-center gap-5 text-xs text-slate-400">
               {[
                 ['#overview', '总览'],
+                ['#rockets', '火箭'],
                 ['#launch', '发射'],
                 ['#reuse', '回收'],
                 ['#constellation', '星座'],
@@ -196,8 +198,19 @@ export default function App() {
           <div className="section-rule my-1 sm:my-2" />
 
           <Section
+            id="rockets"
+            eyebrow="02 · ROCKETS"
+            title="火箭实体 · 世代演进"
+            desc="SpaceX（马斯克旗下）与中国长征各代火箭外形、规格与关键改进。点选缩略图查看详情；可左右滑动切换型号。"
+          >
+            <RocketEvolution />
+          </Section>
+
+          <div className="section-rule my-1 sm:my-2" />
+
+          <Section
             id="launch"
-            eyebrow="02 · LAUNCH"
+            eyebrow="03 · LAUNCH"
             title="发射成绩"
             desc="年度轨道发射对照。可切换 SpaceX / 美国合计。2026 为 YTD。"
           >
@@ -208,7 +221,7 @@ export default function App() {
 
           <Section
             id="reuse"
-            eyebrow="03 · REUSE"
+            eyebrow="04 · REUSE"
             title="回收与复用"
             desc="SpaceX 一级着陆 638 次成功；中国仍以验证与试验为主。"
           >
@@ -219,7 +232,7 @@ export default function App() {
 
           <Section
             id="constellation"
-            eyebrow="04 · CONSTELLATION"
+            eyebrow="05 · CONSTELLATION"
             title="卫星与星座"
             desc="Starlink 工作星约 10,832；国网 / 千帆组网中，规划万星量级。"
           >
@@ -230,7 +243,7 @@ export default function App() {
 
           <Section
             id="timeline"
-            eyebrow="05 · TIMELINE"
+            eyebrow="06 · TIMELINE"
             title="时间叙事"
             desc="从首次着陆到年发射纪录——近十年航天加速史。"
           >

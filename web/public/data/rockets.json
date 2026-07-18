@@ -1,0 +1,306 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-07-18",
+  "note": "外形图为基于公开外观特征生成的实体写实插画，用于科普展示；规格为公开量级，改进点为相对上一代的关键工程变化。",
+  "lineages": [
+    {
+      "id": "spacex",
+      "name": "SpaceX · 马斯克旗下",
+      "subtitle": "从消耗型小火箭到完全可复用超级重型",
+      "accent": "cyan",
+      "era": "2006 — 至今",
+      "rockets": [
+        {
+          "id": "falcon1",
+          "name": "Falcon 1",
+          "generation": "第 1 代",
+          "years": "2006–2009",
+          "status": "退役",
+          "role": "入轨验证 · 小型运载",
+          "image": "rockets/falcon1.jpg",
+          "heightM": 21,
+          "diameterM": 1.7,
+          "engines": "Merlin 1C ×1（一级）",
+          "leoKg": "约 180–670",
+          "reuse": "不可复用",
+          "highlights": ["SpaceX 首款入轨火箭", "证明商业公司可独立研制入轨运载"],
+          "improvements": [
+            "从零到一：完成轨道发射全流程",
+            "Merlin 发动机与煤油液氧动力路线验证",
+            "低成本制造与快速迭代文化成型"
+          ],
+          "look": "细长白色单芯，无着陆腿，小型整流罩，热带岛礁发射场意象"
+        },
+        {
+          "id": "falcon9-early",
+          "name": "Falcon 9 v1.0 / v1.1",
+          "generation": "第 2 代",
+          "years": "2010–2015",
+          "status": "退役",
+          "role": "中型运载 · 可复用探索期",
+          "image": "rockets/falcon9-early.jpg",
+          "heightM": 68,
+          "diameterM": 3.7,
+          "engines": "Merlin 1C/1D ×9",
+          "leoKg": "约 9–13 吨级",
+          "reuse": "试验着陆（早期）",
+          "highlights": ["九机并联一级", "草蜢/海上着陆试验起步"],
+          "improvements": [
+            "相对 F1：推力与运力跃升一个数量级",
+            "九机 Merlin 并联，提高可靠性与冗余",
+            "开始验证一级回收：腿、栅格舵、海上平台",
+            "载荷从小型卫星扩展到 ISS 货运"
+          ],
+          "look": "标准 3.7 m 芯级白色箭体，黑白涂装，早期无/少着陆腿配置"
+        },
+        {
+          "id": "falcon9-block5",
+          "name": "Falcon 9 Block 5",
+          "generation": "第 3 代 · 主力",
+          "years": "2018–至今",
+          "status": "现役主力",
+          "role": "高频发射 · 工业复用",
+          "image": "rockets/falcon9-block5.jpg",
+          "heightM": 70,
+          "diameterM": 3.7,
+          "engines": "Merlin 1D+ ×9 / 二级 Merlin Vacuum",
+          "leoKg": "约 22 吨级（消耗型配置）",
+          "reuse": "一级常态着陆复用（30+ 飞/箭）",
+          "highlights": ["全球发射频次冠军型", "星链部署主力"],
+          "improvements": [
+            "相对早期 F9：结构与发动机面向快速复飞加固",
+            "钛合金栅格舵、升级着陆腿与隔热",
+            "目标 10 次复飞几乎不翻新，实际纪录 30+ 次",
+            "与星链量产形成「火箭流水线 + 卫星流水线」"
+          ],
+          "look": "黑白箭体 + 黑色级间段，展开式着陆腿与栅格舵，现代发射塔旁"
+        },
+        {
+          "id": "falcon-heavy",
+          "name": "Falcon Heavy",
+          "generation": "第 3 代 · 重型",
+          "years": "2018–至今",
+          "status": "现役",
+          "role": "重型载荷 · 高能轨道",
+          "image": "rockets/falcon-heavy.jpg",
+          "heightM": 70,
+          "diameterM": "3.7×3 芯",
+          "engines": "Merlin 1D+ ×27",
+          "leoKg": "约 63 吨级（理论）",
+          "reuse": "侧助推器可回收，芯级视任务",
+          "highlights": ["三芯捆绑", "深空与高能任务"],
+          "improvements": [
+            "相对单芯 F9：侧助推器捆绑，推力与运力大幅提升",
+            "复用侧助推器降低重型任务成本",
+            "覆盖军用、深空探测器等 F9 吃力的轨道"
+          ],
+          "look": "三根白色芯级并排，两侧助推器顶部为头锥而非级间段"
+        },
+        {
+          "id": "starship",
+          "name": "Starship + Super Heavy",
+          "generation": "第 4 代 · 下一代",
+          "years": "试验中（2023–）",
+          "status": "试验 / 过渡运营",
+          "role": "完全可复用 · 超重型 · 深空",
+          "image": "rockets/starship.jpg",
+          "heightM": 120,
+          "diameterM": 9,
+          "engines": "Raptor 多台（甲烷液氧）",
+          "leoKg": "100+ 吨级目标",
+          "reuse": "推进器+飞船双级完全复用目标",
+          "highlights": ["不锈钢箭体", "塔架机械臂捕获试验"],
+          "improvements": [
+            "相对 Falcon：直径 9 m、全不锈钢、甲烷 Raptor",
+            "目标两级均快速复用，成本结构再次下探",
+            "支持巨型星座、点对点运输、月球/火星架构",
+            "发射与回收从「海上无人船」迈向「塔架捕获」"
+          ],
+          "look": "银亮不锈钢巨型两级堆叠，Starbase 发射塔与机械臂环境"
+        },
+        {
+          "id": "falcon9-landing",
+          "name": "一级回收（Falcon 9）",
+          "generation": "能力里程碑",
+          "years": "2015–至今",
+          "status": "工业常态",
+          "role": "改变发射经济学的关键动作",
+          "image": "rockets/falcon9-landing.jpg",
+          "heightM": 47,
+          "diameterM": 3.7,
+          "engines": "着陆段 1–3 机 Merlin",
+          "leoKg": "—",
+          "reuse": "海上无人船 / 陆地场",
+          "highlights": ["2015 首次陆地成功着陆", "复飞成为默认"],
+          "improvements": [
+            "把「一级」从消耗品变成可周转资产",
+            "支撑单箭 30+ 飞与每周多射节奏",
+            "为中国等后发者提供可参考的工程路径"
+          ],
+          "look": "白色一级在海上无人船上四腿站立，海浪与蒸汽"
+        }
+      ]
+    },
+    {
+      "id": "china",
+      "name": "中国运载火箭",
+      "subtitle": "长征系列代际演进：从载人到重型与可回收探索",
+      "accent": "amber",
+      "era": "1970 — 至今",
+      "rockets": [
+        {
+          "id": "cz2f",
+          "name": "长征二号 F",
+          "generation": "载人专型",
+          "years": "1999–至今",
+          "status": "现役（载人）",
+          "role": "神舟载人飞船",
+          "image": "rockets/cz2f.jpg",
+          "heightM": 58,
+          "diameterM": 3.35,
+          "engines": "四助推 + 芯一级（常规推进剂）",
+          "leoKg": "约 8 吨级（载人构型）",
+          "reuse": "消耗型",
+          "highlights": ["中国载人航天主力", "逃逸塔构型标志性外观"],
+          "improvements": [
+            "在长征二号族上强化载人安全与逃逸系统",
+            "高可靠性流程与发射场保障体系",
+            "支撑从神舟首飞到空间站运营的载人运输"
+          ],
+          "look": "带逃逸塔的白色载人火箭，酒泉夜射经典画面"
+        },
+        {
+          "id": "cz3b",
+          "name": "长征三号乙",
+          "generation": "地球同步主力",
+          "years": "1996–至今",
+          "status": "现役高密度",
+          "role": "高轨通信 / 北斗 / 月球探测相关",
+          "image": "rockets/cz3b.jpg",
+          "heightM": 56,
+          "diameterM": 3.35,
+          "engines": "四助推 + 芯级 + 氢氧上面级",
+          "leoKg": "GTO 约 5–6 吨级（构型相关）",
+          "reuse": "消耗型",
+          "highlights": ["西昌高轨任务常客", "氢氧上面级"],
+          "improvements": [
+            "相对早期长征：高轨运力与上面级能力成熟",
+            "氢氧三子级提升地球同步转移轨道性能",
+            "成为中国高轨发射「主力工兵」"
+          ],
+          "look": "四助推捆绑、修长箭体，山地发射场"
+        },
+        {
+          "id": "cz5",
+          "name": "长征五号",
+          "generation": "新一代重型",
+          "years": "2016–至今",
+          "status": "现役重型",
+          "role": "空间站舱段 · 探月 · 大载荷",
+          "image": "rockets/cz5.jpg",
+          "heightM": 57,
+          "diameterM": 5,
+          "engines": "氢氧芯一级 + 四助推（煤油液氧）",
+          "leoKg": "约 25 吨级",
+          "reuse": "消耗型",
+          "highlights": ["5 m 芯级", "文昌发射"],
+          "improvements": [
+            "相对 CZ-2/3 族：芯径 5 m，运力进入重型门槛",
+            "无毒推进剂路线（氢氧 / 煤油液氧）",
+            "支撑天和核心舱、嫦娥五号返回等大质量任务",
+            "为中国深空与空间站建造提供「大推力底座」"
+          ],
+          "look": "粗壮芯级 + 四助推，文昌滨海发射台"
+        },
+        {
+          "id": "cz7",
+          "name": "长征七号",
+          "generation": "新一代中型",
+          "years": "2016–至今",
+          "status": "现役",
+          "role": "货运飞船 · 中近地轨道",
+          "image": "rockets/cz7.jpg",
+          "heightM": 53,
+          "diameterM": 3.35,
+          "engines": "煤油液氧 · 四助推构型",
+          "leoKg": "约 13 吨级",
+          "reuse": "消耗型（可回收技术预研并行）",
+          "highlights": ["天舟货运", "新一代无毒推进"],
+          "improvements": [
+            "与 CZ-5 同属新一代：推进剂无毒化",
+            "中型运力填补载人/货运近地轨道需求",
+            "文昌与新发射工位提升发射密度潜力"
+          ],
+          "look": "中等粗细芯级与四助推，移动发射平台"
+        },
+        {
+          "id": "cz8",
+          "name": "长征八号",
+          "generation": "新一代商业友好型",
+          "years": "2020–至今",
+          "status": "现役扩展中",
+          "role": "中低轨星座 · 商业发射",
+          "image": "rockets/cz8.jpg",
+          "heightM": 50,
+          "diameterM": 3.35,
+          "engines": "煤油液氧（构型含有/无助推）",
+          "leoKg": "约 8 吨级（构型相关）",
+          "reuse": "可回收型在研 / 试验路线",
+          "highlights": ["面向商业与星座节奏", "与 CZ-7 技术共用"],
+          "improvements": [
+            "面向中低轨批量发射与商业客户",
+            "系列化、模块化，降低使用门槛",
+            "公开推进一级回收等复用技术验证",
+            "服务国网 / 千帆等星座部署窗口"
+          ],
+          "look": "现代中型白箭，商业发射场简洁工位"
+        },
+        {
+          "id": "cz9",
+          "name": "长征九号（规划）",
+          "generation": "下一代超重型",
+          "years": "规划中",
+          "status": "规划 / 研制",
+          "role": "载人登月 · 深空 · 超大载荷",
+          "image": "rockets/cz9.jpg",
+          "heightM": "约 100+（方案演进）",
+          "diameterM": "约 10（方案演进）",
+          "engines": "新一代大推力发动机（方案中）",
+          "leoKg": "百吨级目标",
+          "reuse": "可复用方案被广泛讨论",
+          "highlights": ["对标 Starship 级运力想象空间", "服务载人登月等"],
+          "improvements": [
+            "相对 CZ-5：运力再上一个台阶，进入超重型",
+            "支撑载人登月、深空探测与大型在轨基建",
+            "与可复用技术路线共同决定 2030 年代格局"
+          ],
+          "look": "概念中的巨型多芯/大直径箭体，未来滨海发射场"
+        }
+      ]
+    }
+  ],
+  "evolutionSummary": [
+    {
+      "side": "spacex",
+      "title": "SpaceX 演进主线",
+      "steps": [
+        "Falcon 1 证明能入轨",
+        "Falcon 9 把运力做大",
+        "Block 5 把复用做成工业",
+        "Heavy 覆盖重型高能轨道",
+        "Starship 追求完全可复用与深空"
+      ]
+    },
+    {
+      "side": "china",
+      "title": "中国长征演进主线",
+      "steps": [
+        "CZ-2F 保障载人安全",
+        "CZ-3 族站稳高轨",
+        "CZ-5/7 新一代无毒重型/中型",
+        "CZ-8 面向星座与商业节奏",
+        "CZ-9 + 可回收对接下一个十年"
+      ]
+    }
+  ]
+}

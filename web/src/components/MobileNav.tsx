@@ -1,9 +1,9 @@
 const LINKS = [
   { href: '#overview', label: '总览', icon: '◈' },
-  { href: '#launch', label: '发射', icon: '▲' },
+  { href: '#rockets', label: '火箭', icon: '▲' },
+  { href: '#launch', label: '发射', icon: '↑' },
   { href: '#reuse', label: '回收', icon: '↺' },
   { href: '#constellation', label: '星座', icon: '✦' },
-  { href: '#timeline', label: '时间', icon: '☰' },
 ] as const
 
 export function MobileNav() {

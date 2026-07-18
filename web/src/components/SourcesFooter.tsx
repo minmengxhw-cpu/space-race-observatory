@@ -16,6 +16,9 @@ export function SourcesFooter({
           Data & Disclaimer
         </p>
         <p className="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed max-w-3xl">{disclaimer}</p>
+        <p className="mt-2 text-xs sm:text-sm text-slate-500 leading-relaxed max-w-3xl">
+          火箭图鉴中的外形图为基于公开外观特征生成的实体写实插画，用于科普对照；规格与改进点为公开报道量级，方案可能随官方更新而变化。
+        </p>
         <p className="mt-2 text-[11px] sm:text-xs text-slate-500 font-mono-num">
           数据截至 {updatedAt} · 口径可能调整
         </p>
